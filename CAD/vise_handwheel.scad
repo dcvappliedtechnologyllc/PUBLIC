@@ -1,4 +1,7 @@
-// Handwheel adapter for the Doyle 4-1/2" vise screw — Rev C (6-1/2" wheel: the bar is 6-3/4" clear between the rubber washers)
+// Handwheel adapter for the Doyle 4-1/2" vise screw — Rev D geometry (Rev C printed: bore had no interference -> tightened; bar seat
+// depth was dead-on -> untouched; rib walls were taller than the bar so the ties hovered -> cut down to just below the bar top so they
+// cinch on it). Rev E = this solid + face art (full DCV logo, "LEFTY LOOSE / RIGHTY TIGHT" arc) debossed 0.68 mm into the front face by
+// handwheel_face.py (manifold3d), which reads the Rev D STL exported from here. Render this file plain -> vise_handwheel_D_plain_PRINT.stl.
 // Slides over the Ø38 hub from the front (through bore), a rib across the back carries an open channel that
 // drops over the sliding T-bar (Ø15) on both sides of the hub. Two cable ties, one each side, pass through the
 // plate and across the channel mouth to hold the bar in. The hub sticks out through the front — how far depends
@@ -18,20 +21,21 @@ scallops       = 12;     // finger scallops around the rim
 scallop_depth  = 4;      // radial amplitude of the scallops
 front_chamfer  = 1.5;    // bed-side edge (prints as a 45deg overhang)
 back_round     = 3;      // back-side rim edge fillet
-hub_clear      = 1.0;    // bore = hub + this
+hub_clear      = 0.4;    // bore = hub + this (Rev C at 1.0 + ribs came out with no interference at all)
 bar_clear      = 1.0;    // channel = bar + this
 
 /* [Crush ribs — tap-on fit on the hub. The bore stays at clearance; six small ribs stand proud of it and
    interfere with the hub, so they crush/shave as the wheel is tapped on and hold it tight. Kept clear of
    the channel (no ribs at 0/180 deg). Lead-in taper on the entry (back) side.] */
 crush_ribs        = 6;
-rib_interference  = 0.4;    // on diameter: rib crests sit at hub_dia - this (0.016")
+rib_interference  = 0.8;    // on diameter: rib crests sit at hub_dia - this (0.031"). Rev C at 0.4 did nothing.
 rib_base_w        = 2.4;    // rib width at the bore wall
 rib_leadin        = 2.5;    // taper to zero over this much of the entry side
 
 /* [Bar rib + channel] */
 rib_wall       = 6;      // channel wall thickness each side
-rib_height     = 20;     // rib height off the back of the plate: bar (15) fully inside + "a little deeper" (0.79")
+rib_height     = 11.5;   // rib height off the back of the plate: top lands 0.5 mm BELOW the bar top (bar axis at 16, top at 23.5),
+                         // so the tie notch floor (21) is under the bar crown and the tie wraps the bar instead of hovering over it
 seat_depth     = 4;      // half-round seat for the bar cut into the plate's back face, so the bar nests below the rib floor
 
 /* [Cable ties] */

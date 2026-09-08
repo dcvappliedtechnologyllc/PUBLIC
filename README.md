@@ -66,7 +66,8 @@ captured nuts. Two 1/4-20 screws up through the keel hold it. Swap the insert, s
 | `dock_keel_4.5in_v7_ONEND_PRINT.stl` | Keel dock | On an end face ("pop can") | None |
 | `dock_mag_insert_PMAG_v4_PRINT.stl` | PMAG magwell insert for the keel (cloned PMAG geometry on a nut-trap base) | Base down | None |
 | `jaw_hole_pattern_Q_test_plate_PRINT.stl` | 0.2 in coupon of the Rev Q slot pattern (2.40 centres, 9/32 holes) — print first to check your screw spacing | Flat | None |
-| `vise_handwheel_A_PRINT.stl` | 5-1/2 in handwheel that clips over the vise's sliding T-bar (bonus part, see below) | Face down | None |
+| `vise_handwheel_E_PRINT.stl` | 6-1/2 in handwheel that clips over the vise's sliding T-bar, full DCV logo and a LEFTY LOOSE / RIGHTY TIGHT arrow arc debossed in the face (bonus part, see below) | Face down | None |
+| `vise_handwheel_D_plain_PRINT.stl` | Same wheel, plain face | Face down | None |
 | `Doyle Jaws 4.5in J - claude PETG+ proto.3mf` | OrcaSlicer project: PETG proto plate, plain jaw on end + branded jaw upright, P1S 0.6 mm | — | — |
 | `Doyle Jaws 4.5in Q + PMAG insert - claude PA612-CF15.3mf` | OrcaSlicer project: the nylon plate — both jaws on end + PMAG insert, PA612-CF15 presets baked in (11 h, 381 g) | — | — |
 
@@ -130,14 +131,22 @@ up with the casting sides.
 
 ### Handwheel
 
-Not part of the jaw system, but it lives on the same vise. A 5-1/2 in scalloped disc, 0.47 in thick, with a
-Ø1.54 in bore that slides over the vise screw's Ø38 mm hub from the front and a rib across the back carrying
+Not part of the jaw system, but it lives on the same vise. A 6-1/2 in scalloped disc, 0.47 in thick, with a
+Ø1.51 in bore that slides over the vise screw's Ø38 mm hub from the front and a rib across the back carrying
 an open channel that drops over the Ø15 mm sliding T-bar on both sides of the hub. The hub locates it, the
 bar drives it, and two cable ties (through the plate, across the channel mouth, back through — one each
 side of the hub) hold it on. The bar is captured centred, so the ball ends stick out past the rim as spinner
 knobs and the scallops are the palm grip. The hub pokes out through the front by however far the bar sits
-back in it; nothing has to be measured. Channel is 0.79 in deep with a 4 mm half-round seat sunk into the
-plate, so the bar is fully inside with margin. Prints face down, no support, ~3.5 oz of PETG.
+back in it; nothing has to be measured. Six crush ribs in the bore stand 0.016 in proud each side — tap the
+wheel on with a mallet and it stays put. The rib walls stop 0.02 in below the bar top so the ties cinch onto
+the bar rather than hovering over it. Prints face down, no support, ~4 oz.
+
+Rev E carries the face art: the full DCV logo in the lower half and "◄ LEFTY LOOSE ▪ RIGHTY TIGHT ►" arced
+over the top, debossed 0.027 in (first layer plus two 0.24 mm layers, so the floors land on a layer line).
+The words are on the *top* arc on purpose — up there the reader's left is counter-clockwise and right is
+clockwise, so the arrows point the way the wheel turns. The art is cut mirrored by `handwheel_face.py`
+(manifold3d) from the plain Rev D STL, so it reads correctly off the build plate. Rev C was printed and
+fitted; D fixed the bore fit and rib height, E added the face.
 
 **Opening.** The vise opens 4-1/2 in between its steel plates. With the printed jaws the apex
 line opens roughly 1.2 in less than the bare seat-to-seat distance and the band faces 2.4 in
@@ -263,7 +272,7 @@ magazine vise-block STL rather than modelled from scratch; `mag_insert.py` cuts 
 file and adds the base, nut pockets and keel interface, which are new. PMAG is a Magpul trademark;
 no affiliation.
 
-Artwork: DCV wordmark © DCV Applied Technology; URL set in Orbitron (SIL OFL).
+Artwork: DCV wordmark and logo © DCV Applied Technology; URL and handwheel lettering set in Orbitron (SIL OFL).
 
 ---
 
@@ -285,3 +294,5 @@ Technology, LLC. The licence covers the design, **not** the marks. If you distri
 version, remove or replace the DCV wordmark and DCV-AT.COM deboss — they are source identifiers,
 and leaving them on a part DCV did not produce misrepresents its origin. The artwork is a
 separate SVG and a one-line swap in `art_logo_public.scad`; the plain jaw carries no mark at all.
+The same goes for the handwheel: use `vise_handwheel_D_plain_PRINT.stl`, or swap `dcv_logo_poly.svg`
+in `handwheel_face.py` for your own art.

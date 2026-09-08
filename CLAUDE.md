@@ -12,7 +12,9 @@ Printed light-vee soft jaws + keel dock for the Harbor Freight Doyle 4-1/2 in sw
 - **Keel dock** — double-vee block, the negative of the jaw vee, drops between the jaws and
   carries a swappable insert. Current **v7**.
 - **PMAG insert** — magwell stub on a nut-trap base for the keel pocket. **v4**.
-- **Handwheel** — clips over the vise's Ø15 sliding T-bar, rides on the Ø38 hub, two cable ties. **Rev A**, unprinted.
+- **Handwheel** — clips over the vise's Ø15 sliding T-bar, rides on the Ø38 hub with crush ribs, two cable ties.
+  **Rev D** plain / **Rev E** with the full DCV logo + LEFTY LOOSE / RIGHTY TIGHT arc debossed in the face
+  (`handwheel_face.py`). Rev C printed and fitted; D/E unprinted.
 
 ## Ground rules for this project
 
@@ -35,7 +37,8 @@ Printed light-vee soft jaws + keel dock for the Harbor Freight Doyle 4-1/2 in sw
 
 ```
 CAD/        doyle_vee_jaw.scad, deboss.py, art_logo_public.scad + .svg, dcv_wordmark.svg,
-            dock_keel.scad, mag_insert.py, vise_handwheel.scad, print-ready STLs, the Orca 3MF, previews/
+            dock_keel.scad, mag_insert.py, vise_handwheel.scad, handwheel_face.py + dcv_logo_poly.svg,
+            print-ready STLs, the Orca 3MFs, previews/
 README.md   the published doc (repo root, so GitHub renders it)
 LICENSE     CERN-OHL-S v2
 Notes/      Design-Log.md — why it looks like this, what was rejected, open items
@@ -68,7 +71,9 @@ with every prior rev — lives separately in
 
 **The two trees are not the same repo, and that separation is the point.**
 Nothing matching `DCV_movable`, `DCV_fixed`, `art_text*`, `art_logo_45` or
-`Vice_Block` belongs in the public repo. Re-check with
+`Vice_Block` belongs in the public repo. (The full logo itself is public — it is on
+the handwheel as `dcv_logo_poly.svg`; `art_logo_45` is only excluded because it
+sits next to the private text art.) Re-check with
 `git ls-files | grep -iE 'movable|fixed|art_text|art_logo_45|Vice_Block'`
 before any public push — it must come back empty.
 

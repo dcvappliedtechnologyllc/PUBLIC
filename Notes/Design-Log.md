@@ -70,12 +70,23 @@ Dock:
 | v6 | Set-tab 0.10 → 0.07 | Rev I slot is 0.10 |
 | v7 / insert v4 | 1/4-20 | see jaw Rev N. Insert stub also sunk 0.2 mm into its base so the union overlaps instead of sharing a face (the shared face came back as non-manifold edges after STL round-trip). |
 
-Handwheel (Rev A): the sliding T-bar is always off-centre and needs flipping; a disc that clips onto the
+Handwheel (Rev A–E): the sliding T-bar is always off-centre and needs flipping; a disc that clips onto the
 exposed bar on both sides of the hub makes it a spinner. Snap lips were drawn first and replaced by two cable
 ties at the user's request — a snap fit on a Ø15 bar lives on a couple of tenths of fit, a tie does not. The
 through bore means the axial position of the bar in the hub (unmeasured) does not matter: the wheel seats on
 the bar, the hub pokes out the front. Channel made deeper than the estimate ("a little deeper than your guess").
 `hull()` for the rim chamfer silently convexified the scallops; replaced with stepped offsets.
+Rev B added six crush ribs in the bore (tap-on fit) — the first angle formula put two of them on the bar axis
+where there is no bore wall, fixed with a half-pitch offset. Rev C went to 6-1/2 in (6-3/4 in of bar between
+the rubber washers). **Rev C printed 2026-09-08:** bore had no interference at all (1.0 mm clearance plus
+0.4 mm ribs was still loose), seat depth was "dead nuts", rib walls stood above the bar so the cable ties
+hovered. Rev D: clearance 0.4, ribs 0.8 on diameter, rib height 20 → 11.5 mm so the notch floor sits under
+the bar crown and the tie wraps the bar. Rev E: face art. The wordmark-only SVG looked broken at wheel scale,
+so the full logo (bullet, rule, APPLIED TECHNOLOGY) went in instead, 3.5 in wide, with the 0.5 mm rule
+fattened to 1.0 mm for the 0.6 mm nozzle. Direction words on the top arc, not the bottom: on a bottom arc the
+reader's left is clockwise, which is exactly how a "lefty loose" mark ends up pointing the wrong way. Deboss
+0.68 mm = first layer + 2 × 0.24 so the letter floors bridge on a layer boundary. Cut with manifold3d, plain
+0.68 mm extrusion, no chamfer needed because the face is on the bed.
 
 Pattern worth noting: both clamp-stack mistakes were caught by the user asking one question,
 not by analysis. Draw the bolt, the nut and what each bears on before modelling.
@@ -161,6 +172,9 @@ will be much stiffer.
    on the face without bowing.
 4. **Keel float.** Confirm the keel sits 0.04 low on the tab and lifts onto the vee faces as the
    jaws close, and that the 0.07 tab clears the 0.10 slot in nylon.
+5. **Handwheel Rev D/E fit.** Rev C was loose on the hub; D/E have 0.4 mm clearance + 0.8 mm ribs.
+   Confirm it taps on and holds, and that the ties now bear on the bar. Check the debossed
+   TECHNOLOGY strokes (~0.8 mm) resolve with the 0.6 mm nozzle.
 5. **PA612-CF.** No profile yet. Flow and temperature tower before committing the spool; check
    whether the URL deboss wants 0.6 mm depth on end.
 6. **Photos** for the README: jaws on the vise with a handguard; keel + insert with a lower.
