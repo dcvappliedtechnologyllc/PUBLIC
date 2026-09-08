@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+._*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Secrets — never commit
+Secrets.h
+secrets.h
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+
+# Archives
+*.zip
