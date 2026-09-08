@@ -1,4 +1,4 @@
-// Doyle Light-Vee Jaw  —  Rev P  (Rev O with 0.35" of plastic under the washer, so a 3/4" screw gets 0.34" of thread in the blind holes)
+// Doyle Light-Vee Jaw  —  Rev Q  (Rev P + teardrop roof on the washer pockets so the on-end print has no near-horizontal arch)
 // Printed vee jaw for the Harbor Freight Doyle 4-1/2" swivel vise (HF #57737)
 // Print two. Model is in mm; every parameter below is entered in inches.
 // Modeled upright (Z = height, +Y = toward the workpiece, -Y = over the vise).
@@ -186,10 +186,14 @@ module vee_wedge_2d() {
 }
 
 // rounded-rectangle slot, axis along Y, from y0 to y1
-module slot(d, x, z, y0, y1, vert = 0, open_bottom = false) {
+module slot(d, x, z, y0, y1, vert = 0, open_bottom = false, teardrop = false) {
     translate([x, y0, z]) rotate([-90, 0, 0])
-        hull() for (sx = [-1, 1], sz = [-1, 1])
-            translate([sx * SLOT/2, sz * vert/2, 0]) cylinder(d = d, h = y1 - y0);
+        hull() {
+            for (sx = [-1, 1], sz = [-1, 1])
+                translate([sx * SLOT/2, sz * vert/2, 0]) cylinder(d = d, h = y1 - y0);
+            if (teardrop)   // 45deg roof: apex at r*sqrt(2) above centre, so no arch crown goes flat on the on-end print
+                for (sx = [-1, 1]) translate([sx * SLOT/2, -(vert/2 + d/2 * sqrt(2)), 0]) cylinder(d = 0.5, h = y1 - y0, $fn = 8);
+        }
     if (open_bottom)   // straight walls from the bore centreline down through the jaw bottom
         translate([x - SLOT/2 - d/2, y0, -1]) cube([SLOT + d, y1 - y0, z + 1]);
 }
@@ -265,7 +269,7 @@ module jaw() {
         if (!(ease_edges && foam_lip)) rotate([90, 0, 90]) translate([0, 0, -1]) linear_extrude(L + 2) vee_wedge_2d();
         for (x = [L/2 - CC/2, L/2 + CC/2]) {
             slot(thru_dia_in * in, x, SH, -FD - 1, YMAX + 5, SLV);
-            slot(cbore_dia_in * in, x, SH, wall_under_head_in * in, YMAX + 5, SLV, cbore_open_bottom);
+            slot(cbore_dia_in * in, x, SH, wall_under_head_in * in, YMAX + 5, SLV, cbore_open_bottom, teardrop = true);
         }
         if (magnet_pockets)
             for (mx = magnet_x_in) for (u = [true, false]) if (mx * in < L) magnet_pocket(mx * in, u);

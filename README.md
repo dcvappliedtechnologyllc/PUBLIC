@@ -59,15 +59,16 @@ captured nuts. Two 1/4-20 screws up through the keel hold it. Swap the insert, s
 
 | File | What it is | Print orientation | Support |
 |---|---|---|---|
-| `jaw_4.5in_P_plain_ONEND_PRINT.stl` | Plain jaw. Print two, or one of these + one branded. | Standing on an end face (as delivered) | None |
-| `jaw_4.5in_P_plain_UPRIGHT_PRINT.stl` | Same jaw upright, if you want both jaws the same way | Upright | Under the saddle only |
-| `jaw_4.5in_P_DCV_public_UPRIGHT_PRINT.stl` | Movable jaw with the DCV wordmark and DCV-AT.COM debossed in the back wedge (cleanest artwork) | Upright | Under the saddle only |
-| `jaw_4.5in_P_DCV_public_ONEND_PRINT.stl` | Same, with 45° ceilings cut into the artwork so it prints on end with no support (strongest) | On end | None |
+| `jaw_4.5in_Q_plain_ONEND_PRINT.stl` | Plain jaw. Print two, or one of these + one branded. | Standing on an end face (as delivered) | None |
+| `jaw_4.5in_Q_plain_UPRIGHT_PRINT.stl` | Same jaw upright, if you want both jaws the same way | Upright | Under the saddle only |
+| `jaw_4.5in_Q_DCV_public_UPRIGHT_PRINT.stl` | Movable jaw with the DCV wordmark and DCV-AT.COM debossed in the back wedge (cleanest artwork) | Upright | Under the saddle only |
+| `jaw_4.5in_Q_DCV_public_ONEND_PRINT.stl` | Same, with 45° ceilings cut into the artwork so it prints on end with no support (strongest) | On end | None |
 | `dock_keel_4.5in_v7_ONEND_PRINT.stl` | Keel dock | On an end face ("pop can") | None |
 | `dock_mag_insert_PMAG_v4_PRINT.stl` | PMAG magwell insert for the keel (cloned PMAG geometry on a nut-trap base) | Base down | None |
-| `jaw_hole_pattern_P_test_plate_PRINT.stl` | 0.2 in coupon of the Rev P slot pattern (2.40 centres, 9/32 holes) — print first to check your screw spacing | Flat | None |
+| `jaw_hole_pattern_Q_test_plate_PRINT.stl` | 0.2 in coupon of the Rev Q slot pattern (2.40 centres, 9/32 holes) — print first to check your screw spacing | Flat | None |
 | `vise_handwheel_A_PRINT.stl` | 5-1/2 in handwheel that clips over the vise's sliding T-bar (bonus part, see below) | Face down | None |
-| `Doyle Jaws 4.5in J - claude PETG+ proto.3mf` | OrcaSlicer project: plain jaw on end + branded jaw upright, P1S 0.6 mm | — | — |
+| `Doyle Jaws 4.5in J - claude PETG+ proto.3mf` | OrcaSlicer project: PETG proto plate, plain jaw on end + branded jaw upright, P1S 0.6 mm | — | — |
+| `Doyle Jaws 4.5in Q + PMAG insert - claude PA612-CF15.3mf` | OrcaSlicer project: the nylon plate — both jaws on end + PMAG insert, PA612-CF15 presets baked in (11 h, 381 g) | — | — |
 
 The jaws are handed only by the artwork. A plain jaw fits either side. The branded jaw reads
 correctly on the **movable** jaw (wedge toward the operator); put it on the fixed side and it
@@ -110,7 +111,7 @@ up with the casting sides.
 | Foam slot | 0.10 wide × 0.30 deep, against the vee |
 | Lip | 0.145 thick, top flush with the lower vee edge, face 0.08 **behind** the band clamp plane |
 | Screw pattern | 2 × slots on **2.40** centres (measured: 1.05 from each end of the seat), 0.35 above the jaw bottom; Ø9/32 through, ±1/8 horizontal, **±0.04 vertical** so the machined ledge sets the height and the saddle just lands on the casting |
-| Washer pocket | Ø1.06 for a 1 in fender washer, open through the jaw bottom, 0.35 of plastic behind the washer (in compression — thin on purpose so a 3/4 in screw gets thread) |
+| Washer pocket | Ø1.06 for a 1 in fender washer with a 45° teardrop roof (prints on end with no arch), open through the jaw bottom, 0.35 of plastic behind the washer (in compression — thin on purpose so a 3/4 in screw gets thread) |
 | Edges | Lengthwise edges eased: 1/16 chamfers on bed-side edges, 1/16 fillets on top/vee/band edges; slot floor sharp; end edges 1/16 chamfer |
 
 | Keel | Value |
