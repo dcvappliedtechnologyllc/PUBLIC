@@ -1,4 +1,4 @@
-// Doyle Light-Vee Jaw  —  Rev O  (Rev N with Ø1.06" washer pockets for 1" OD fender washers)
+// Doyle Light-Vee Jaw  —  Rev P  (Rev O with 0.35" of plastic under the washer, so a 3/4" screw gets 0.34" of thread in the blind holes)
 // Printed vee jaw for the Harbor Freight Doyle 4-1/2" swivel vise (HF #57737)
 // Print two. Model is in mm; every parameter below is entered in inches.
 // Modeled upright (Z = height, +Y = toward the workpiece, -Y = over the vise).
@@ -49,7 +49,7 @@ thru_dia_in         = 0.28;   // 9/32 clearance for 1/4-20 (the vise's jaw screw
 cbore_dia_in        = 1.06;   // clears a 1" OD fender washer; pocket is open through the jaw bottom, washer hangs 0.15" below it over air past the ~3/8" ledge
 slot_travel_in      = 0.25;   // horizontal slot travel (1/8" each way)
 slot_vert_in        = 0.08;   // vertical slop: the machined ledge sets the height, the saddle lands where the rough casting top puts it, the screws never fight either
-wall_under_head_in  = 0.50;   // solid plastic between washer and casting
+wall_under_head_in  = 0.35;   // solid plastic between washer and casting (in compression; 0.35 leaves a 3/4" 1/4-20 with 0.34" of engagement)
 cbore_open_bottom   = true;   // washer pocket opens through the jaw bottom (no knife-edge sliver under a 16 mm washer; the plate seat closes it)
 
 /* [Branding — reads correctly on the MOVABLE jaw (wedge faces the operator)] */
