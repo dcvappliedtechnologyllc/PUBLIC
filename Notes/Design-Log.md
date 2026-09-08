@@ -49,6 +49,7 @@ the same job with no geometry, and the user's stated preference was fewer clever
 | G | Lip rail thinned to 0.155 | rail crush concern |
 | G2/H | **Lip removed, band left as a flat shelf**; section trimmed 29 % (28.4 → 20.3 in³): back-to-apex 0.75 → 0.60, wedge 1.50 → 0.60, saddle 1.50 → 1.25 | "why not remove this? prevents that spot from ever seeing clamping load" — a flush lip was the one thin feature in the load path. Then "rethink the geometry, reduce the cross section, keep height" |
 | I | **Slot back with a set-back lip**; saddle cut flush with the wedge base (tail removed); band 0.275 → 0.325 proud | the foam slot was wanted after all, but with a profile that keeps clamping load off it. Lip face 0.08 behind the band plane, 0.145 thick so it isn't fragile. The 0.65 in of saddle past the wedge did nothing structural. |
+| O | Washer pockets Ø0.82 → **Ø1.06 for 1 in fender washers** | Only 1 in fenders on the shelf. Since the pocket is open through the bottom and the washer sits past the ledge, OD is free up to the pocket; 1 in hangs 0.15 below the jaw over air. Bearing ~350 psi. A small washer under the head bridges the fender's 5/16 hole. |
 | N | **1/4-20 hardware throughout** (jaw, keel v7, insert v4) | The vise's jaw screws are 1/4-20, not M6 — 5/32 and 4 mm hexes are indistinguishable by eye; the pitch (20 tpi vs 1.0 mm) is the tell. Through-holes 0.26 → 9/32; washer is a 1/4 SAE flat (3/4 OD, fits the Ø0.82 pocket); insert nut pockets 10.2 → 11.4 mm AF for a 7/16 nut, ~0.19 of stub wall each side; keel head bore stays Ø0.52 (a 1/4-20 button head is 0.44), no washer there because the keel bottom is only 1.96 wide. |
 | M | **Saddle and wedge 0.60 → 0.35**; vertical slot slop 0.04 → 0.08 | The casting has only ~1/4 in of rough flat behind the mounting face before the slide top rounds off, and the plate ledge is machined — so the ledge is the datum and the saddle only has to reach the flat. 11 % less plastic (19.1 → 17.1 in³), jaw 1.54 deep. Block bending at the casting top ~1,000 → ~1,600 psi, still 4× in PETG. The extra vertical slop means nobody has to get `seat_height_in` right: the jaw sits on the ledge and the saddle lands where it lands. Steeper wedge (82°) made the deboss cutter's chamfer steps touch edge-to-edge; a sub-micron jog per step in `deboss.py` keeps the output manifold. |
 | L | **Screw centres 2.25 → 2.40**; pockets Ø0.82 for **20 mm** washers | Photos of the bare seat: holes 1.05 in from each end of the 4.47 in face, so 2.40 c-c — the 2.25 estimate was inside the slot range but with 0.05 to spare. The ledge under the plate is only ~3/8 in deep, so a washer 0.50 out from the face hangs over air and can be as big as the pocket allows. Bearing drops to ~600 psi. |
@@ -151,8 +152,9 @@ will be much stiffer.
    spacing sits 0.075 out in each slot). Confirm `seat_height_in` (0.75) and how much flat the
    saddle actually lands on — the slide top is rounded behind a short flat. Bands parallel, ends
    index on the casting. Measure the true opening at the apex and between the bands.
-2. ~~PMAG vise-block source.~~ Closed: the stub is cloned PMAG geometry (the magazine's own external
-   form), cut from an AR magazine vise-block STL; published as such with the trademark note.
+2. **PMAG vise-block source.** The insert's stub is cut from a supplied STL, "AR Magazine Vice
+   Block PMAG Version Final". Author, URL and licence unknown. If it does not permit
+   derivatives, ship the keel with an empty pocket and a pocket drawing.
 3. **Foam.** 2 mm craft foam assumed; slot is 0.10 in. Confirm it stands in the slot and leans
    on the face without bowing.
 4. **Keel float.** Confirm the keel sits 0.04 low on the tab and lifts onto the vee faces as the

@@ -1,4 +1,4 @@
-"""Chamfered deboss of the DCV logo + FUCK YEAH into the Rev N jaw, done with manifold3d
+"""Chamfered deboss of the DCV logo + FUCK YEAH into the Rev O jaw, done with manifold3d
 (OpenSCAD 2021's CGAL chokes on the stepped cutter).  Geometry mirrors doyle_vee_jaw.scad.
 Print orientation is +X up, so the +X wall of every stroke (the cavity ceiling) gets a 45deg chamfer."""
 import re, sys, numpy as np, trimesh
@@ -70,7 +70,7 @@ def save(man, path):
     tm.export(path)
     return trimesh.load(path, process=False)
 
-jaw = load_manifold('jaw_4.5in_N_plain_UPRIGHT_PRINT.stl')
+jaw = load_manifold('jaw_4.5in_O_plain_UPRIGHT_PRINT.stl')
 PUBLIC = '--public' in sys.argv
 text = None if PUBLIC else svg_polys('art_text.svg'); logo = svg_polys('art_logo_public.svg' if PUBLIC else 'art_logo.svg')
 if FLIP and text is not None:   # fixed jaw: operator stands on its vee side, so the top text is rotated 180deg (never mirrored);
@@ -87,8 +87,8 @@ logo_cut = (chamfered_cutter(logo, 0, 1) if UPRIGHT else chamfered_cutter(logo, 
 
 out = ((jaw - logo_cut) if text_cut is None else (jaw - text_cut - logo_cut)).simplify(0.001)
 tag = ('DCV_public' if PUBLIC else 'DCV_FY') + ('_fixedjaw' if FLIP else '') + ('_UPRIGHT' if UPRIGHT else '')
-up = save(out, f'jaw_4.5in_N_{tag}_upright.stl')
-pr = up if UPRIGHT else save(out.rotate([0, -90, 0]), f'jaw_4.5in_N_{tag}_print_on_end.stl')
+up = save(out, f'jaw_4.5in_O_{tag}_upright.stl')
+pr = up if UPRIGHT else save(out.rotate([0, -90, 0]), f'jaw_4.5in_O_{tag}_print_on_end.stl')
 chk = lambda p: trimesh.load(p).is_watertight   # merged, like a slicer
-print(tag, 'watertight', chk(f'jaw_4.5in_N_{tag}_upright.stl'), (UPRIGHT or chk(f'jaw_4.5in_N_{tag}_print_on_end.stl')), 'vol in3', round(up.volume/16387.064, 2), 'faces', len(up.faces),
+print(tag, 'watertight', chk(f'jaw_4.5in_O_{tag}_upright.stl'), (UPRIGHT or chk(f'jaw_4.5in_O_{tag}_print_on_end.stl')), 'vol in3', round(up.volume/16387.064, 2), 'faces', len(up.faces),
       'print bounds in', (pr.bounds/IN).round(2).tolist())
