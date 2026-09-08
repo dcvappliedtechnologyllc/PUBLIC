@@ -58,6 +58,27 @@ Fonts: Orbitron Bold (URL), Bangers (private variant), from Google Fonts.
 Read `Notes/Design-Log.md`. Several obvious-looking changes were tried and reverted — the lip
 in particular has been removed and reinstated once already, on purpose both times.
 
+## Status
+
+**Published 2026-09-07** under CERN-OHL-S v2 as
+`dcvappliedtechnologyllc/PUBLIC` (public). The working tree — `CURRENT/` with
+the private branded jaws, the art SVGs and the PMAG source block, plus `_old/`
+with every prior rev — lives separately in
+`dcvappliedtechnologyllc/PRIVATE`.
+
+**The two trees are not the same repo, and that separation is the point.**
+Nothing matching `DCV_movable`, `DCV_fixed`, `art_text*`, `art_logo_45` or
+`Vice_Block` belongs in the public repo. Re-check with
+`git ls-files | grep -iE 'movable|fixed|art_text|art_logo_45|Vice_Block'`
+before any public push — it must come back empty.
+
 ## Open items
 
-In the Design Log. Do not publish until the fit check and the PMAG-block licence are closed.
+In the Design Log. The PMAG vise-block licence question is **closed** — the
+stub is cloned PMAG geometry cut from an AR magazine vise-block STL, published
+as such with the Magpul trademark note in the README's Attribution section.
+
+What remains is physical and unresolved: the **fit check on the vise** (Rev J
+PETG+ is the first fitted print; the real 2.40 in spacing sits 0.075 out in
+each slot), foam standoff, keel float, no PA612-CF profile yet, and README
+photos. Rev N is what goes on the nylon plate once the fit check passes.
