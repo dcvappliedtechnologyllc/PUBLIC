@@ -68,6 +68,7 @@ Dock:
 | D | Keel shortened to 4.50 in; set-tab in the foam groove; rail reliefs | "the base could have a mating tab to interface with the foam groove" |
 | E | Set-tab full length; **keel printed on end ("like a pop can")** | tab, pocket and reliefs all become vertical walls — no support |
 | v6 | Set-tab 0.10 → 0.07 | Rev I slot is 0.10 |
+| v9 | **Tee top.** Flange 0.50 × 0.20 both sides rests on the jaw tops; keel apex 0.015 above the jaw apex; bottom trimmed 0.30; set-tab and rail reliefs retired | PETG v8 test: the keel cocked as the vise was tightened. Cause was the hanging geometry, not the tab per se: hanging one-sided on a 0.07 fin with 0.02 to the lip the keel tips ~4° with the vise open and sits 0.04 low; closing then has to un-roll it, lift it and slide the fin, and the fin binds diagonally in the slot at ~6°. The vee cannot fix it — tan 15° = 0.27 centring vs 0.3–0.5 friction. David's fix, obvious in hindsight: hang it from the top on a tee so it cannot fall through, and trim the bottom so the top taper dominates. Raising a hexagon by δ closes the upper faces and opens the lower ones by δ tan 15°, so with the apex 0.015 high the upper faces engage first and the clamp reaction pushes the keel down onto the flange: captured both ways (down → flange, up → upper wedge). Lower faces 0.70 long with 0.008 clearance as backup. Hangs stably on the fixed jaw alone (tipping outward lifts its own CG). Screw stack unchanged (0.50 web + 0.40 base + 0.22 nut = 1.12 < 1-1/4). |
 | v8 | Set-tab unioned **after** the rail reliefs and carried 1 mm up into the web | Since Rev D the relief (0.08 high, cut last) went straight through the tab's 1 mm root, so the tab was a second, floating body in every keel STL from D to v7. Nobody had sliced a keel since the reliefs went in; caught in Orca before printing. The STL now splits into one body (`trimesh.split`) — check that on every keel export. |
 | v7 / insert v4 | 1/4-20 | see jaw Rev N. Insert stub also sunk 0.2 mm into its base so the union overlaps instead of sharing a face (the shared face came back as non-manifold edges after STL round-trip). |
 
@@ -173,8 +174,10 @@ will be much stiffer.
    on the face without bowing.
 4. **Keel float.** Confirm the keel sits 0.04 low on the tab and lifts onto the vee faces as the
    jaws close, and that the 0.07 tab clears the 0.10 slot in nylon.
-5. **Keel v8 tab.** The fin now runs through the relief zone at 0.01–0.08 in from the vee edge; the lip
-   starts at 0.10. Confirm it drops into the slot and the keel still hangs on the vee faces, not the lip.
+5. **Keel v9 tee-top.** Confirm the flange lands on both jaw tops together (the two jaws' tops must be at the same
+   height — they are located by the saddles, not the screws), the keel goes in square and stays square when snugged,
+   and it cannot be pushed down or pulled up by hand once clamped. v8 (set-tab) cocked; if v9 does too, the
+   problem is elsewhere (jaw tops not co-planar, or the keel printed bowed).
 6. **Handwheel Rev D/E fit.** Rev C was loose on the hub; D/E have 0.4 mm clearance + 0.8 mm ribs.
    Confirm it taps on and holds, and that the ties now bear on the bar. Check the debossed
    TECHNOLOGY strokes (~0.8 mm) resolve with the 0.6 mm nozzle.

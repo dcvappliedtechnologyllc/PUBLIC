@@ -6,7 +6,7 @@ Soft vee jaws for the Harbor Freight **Doyle 4-1/2 in swivel vise (item 57737)**
 one piece each, that bolt on in the vise's own 1/4-20 jaw-screw holes. A 150° vee raised 2 in above the
 casting holds rifle fore-ends and AR handguards on a few points of contact, a parallel band below
 it clamps flat stock like the steel plates did, and a slot behind the band takes a strip of craft
-foam or the set-tab of the keel dock. The dock is a double-vee block that drops between the jaws
+foam. The dock is a double-vee block with a tee flange that hangs from the jaw tops and drops between them
 and carries a swappable top — currently a PMAG stub, so an AR lower can be clamped by its magwell
 without a separate vise block.
 
@@ -63,7 +63,7 @@ captured nuts. Two 1/4-20 screws up through the keel hold it. Swap the insert, s
 | `jaw_4.5in_Q_plain_UPRIGHT_PRINT.stl` | Same jaw upright, if you want both jaws the same way | Upright | Under the saddle only |
 | `jaw_4.5in_Q_DCV_public_UPRIGHT_PRINT.stl` | Movable jaw with the DCV wordmark and DCV-AT.COM debossed in the back wedge (cleanest artwork) | Upright | Under the saddle only |
 | `jaw_4.5in_Q_DCV_public_ONEND_PRINT.stl` | Same, with 45° ceilings cut into the artwork so it prints on end with no support (strongest) | On end | None |
-| `dock_keel_4.5in_v8_ONEND_PRINT.stl` | Keel dock (v8 — v7's set-tab was a detached body, never print v7) | On an end face ("pop can") | None |
+| `dock_keel_4.5in_v9_ONEND_PRINT.stl` | Keel dock (v9 tee-top; v7/v8 hung on a set-tab and clamped cocked — don't print them) | On an end face ("pop can") | None |
 | `dock_mag_insert_PMAG_v4_PRINT.stl` | PMAG magwell insert for the keel (cloned PMAG geometry on a nut-trap base) | Base down | None |
 | `jaw_hole_pattern_Q_test_plate_PRINT.stl` | 0.2 in coupon of the Rev Q slot pattern (2.40 centres, 9/32 holes) — print first to check your screw spacing | Flat | None |
 | `vise_handwheel_E_PRINT.stl` | 6-1/2 in handwheel that clips over the vise's sliding T-bar, full DCV logo and a LEFTY LOOSE / RIGHTY TIGHT arrow arc debossed in the face (bonus part, see below) | Face down | None |
@@ -118,11 +118,12 @@ up with the casting sides.
 | Keel | Value |
 |---|---|
 | Length | 4.50 |
-| Width | 2.50 across the apex line, 1.96 top and bottom, 2.00 tall |
+| Width | 2.50 across the apex line, 1.96 at the flange, 2.97 over the flanges; 1.89 tall (bottom trimmed 0.30 below the apex line, flange 0.20 above) |
 | Pocket | 2.64 × 1.34 × 0.15 |
-| Screws | 2 × Ø9/32 on 1.60 centres, Ø0.52 head bores 1.35 deep from the bottom, 0.50 web under the head |
-| Set-tab | Full length, 0.07 thick, hangs 0.26 below one bottom edge into the fixed jaw's slot |
-| Rail relief | 0.08 × 0.30 on both bottom edges so the jaw lips never touch the keel |
+| Screws | 2 × Ø9/32 on 1.60 centres, Ø0.52 head bores 1.24 deep from the bottom, 0.50 web under the head |
+| Tee flange | 0.50 reach × 0.20 thick both sides, full length; rests on the jaw tops |
+| Lift | Keel apex 0.015 above the jaw apex when the flange is down → upper vee faces engage first; lower faces get 0.008 total clearance |
+| Lower faces | 0.70 long (bottom trimmed 0.30); keel bottom sits 0.30 above the jaw lips. No tab, no reliefs |
 
 | Insert | Value |
 |---|---|
@@ -181,9 +182,15 @@ rides the vee faces above it. A flat piece against the band never reaches it. Ea
 put the lip flush with the band and it was the one thin feature in the load path; setting it back
 was cheaper than making it strong.
 
-**The keel is located, not loaded, by the tab.** The set-tab drops 0.26 into a 0.30 slot, so the
-keel sits 0.04 low until the closing vee faces lift it. Both bottom edges are relieved so the
-lips never touch it. All the clamping goes through the vee faces.
+**The keel hangs from the jaw tops and is clamped by the upper vee faces only.** The tee flange
+sets its height on both jaws, flat on flat, so roll and pitch are fixed before the handle moves.
+The apex is set 0.015 above the jaw apex: raising a hexagon closes its upper faces and opens its
+lower faces by lift × tan 15°, so the upper faces always touch first and their reaction pushes
+the keel down onto the flange. Push down → flange → jaw top → saddle → casting; pull up → the
+upper wedge tightens. The lower faces are a 0.008 backup. v1–v8 hung on a one-sided set-tab
+in the foam slot instead: the keel tipped about 4° on the tab with the vise open and sat 0.04 low,
+and a 15° vee (centring component tan 15° = 0.27) cannot out-pull PETG-on-PETG friction
+(0.3–0.5) to fix that, so it clamped cocked. A light vee holds a seated keel; it will not seat one.
 
 ---
 
@@ -233,8 +240,9 @@ Plate time for a pair of jaws is about 5.5 h and 282 g in PETG. The plate is flo
 1. Drop a 1/4-20 nut down each hex pocket in the insert; it lands on the base.
 2. Set the insert in the keel's pocket, run the two 1/4-20 × 1-1/4s up from under the keel.
    The head bears up on the keel web, the nut bears down on the base: base and web are clamped.
-3. Pull the foam. Set the keel on the fixed jaw with the tab in the slot, close the movable jaw.
-   The keel centres itself as the vee faces take it.
+3. Pull the foam if it stands above the vee edge. Hang the keel on the fixed jaw by its flange
+   (it leans on the upper vee face and stays put), close the movable jaw until the flange is down
+   on both jaws and the upper faces have it. Push it down as you snug up; it should not move.
 
 ---
 

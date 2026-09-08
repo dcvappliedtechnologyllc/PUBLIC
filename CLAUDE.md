@@ -9,8 +9,8 @@ Printed light-vee soft jaws + keel dock for the Harbor Freight Doyle 4-1/2 in sw
   below it, foam slot with a set-back non-bearing lip, saddle over the casting top, solid back
   wedge carrying the artwork. Bolts on with 1/4-20 × 3/4 button heads (blind holes) and 1 in fender washers through ±1/8 in slots (the vise is 1/4-20, not M6).
   Plain and DCV-branded (wordmark + DCV-AT.COM) variants. Current rev **Q**.
-- **Keel dock** — double-vee block, the negative of the jaw vee, drops between the jaws and
-  carries a swappable insert. Current **v8** (v7 shipped with the set-tab as a separate floating body — the rail relief was cut through its root).
+- **Keel dock** — double-vee block, the negative of the jaw vee, hangs from a tee flange on the jaw tops and
+  carries a swappable insert. Current **v9**. v1–v8 hung on a set-tab in the foam slot and clamped cocked (see Design Log); the tab is retired, not to be reinstated.
 - **PMAG insert** — magwell stub on a nut-trap base for the keel pocket. **v4**.
 - **Handwheel** — clips over the vise's Ø15 sliding T-bar, rides on the Ø38 hub with crush ribs, two cable ties.
   **Rev D** plain / **Rev E** with the full DCV logo + LEFTY LOOSE / RIGHTY TIGHT arc debossed in the face
@@ -85,5 +85,5 @@ as such with the Magpul trademark note in the README's Attribution section.
 
 What remains is physical and unresolved: the **fit check on the vise** (Rev J
 PETG+ is the first fitted print; the real 2.40 in spacing sits 0.075 out in
-each slot), foam standoff, keel float, no PA612-CF profile yet, and README
+each slot), foam standoff, keel v9 tee-top fit (v8 cocked), no PA612-CF profile yet, and README
 photos. Rev N is what goes on the nylon plate once the fit check passes.
