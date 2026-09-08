@@ -1,4 +1,6 @@
-// Keel dock for the Doyle light-vee jaws — Rev G (Rev F on 1/4-20 hardware: 9/32 holes, 1/4-20 x 1-1/4 button heads, no washer; PRINT ON END)
+// Keel dock for the Doyle light-vee jaws — Rev H (v8): the set-tab is now unioned AFTER the rail reliefs and reaches up through
+// the relief into the keel web. In Rev D..G the relief was cut through the tab's root, leaving the tab a separate floating body
+// (caught in the slicer, never printed). Rev G = Rev F on 1/4-20 hardware: 9/32 holes, 1/4-20 x 1-1/4 button heads, no washer; PRINT ON END
 // A double-vee keel that is the negative of the jaw vee (15deg faces, 1.00" above and below the apex),
 // so it drops between the jaws, self-centers when clamped, and carries a swappable top (mag insert etc.).
 // Two 1/4-20 x 1-1/4 button heads come UP through counterbores in the keel bottom, into 1/4-20 nuts dropped down hex
@@ -59,30 +61,35 @@ TL = tab_length_in * in; TT = tab_thick_in * in; TC = tab_clear_in * in; TD = ta
 RR = rail_relief_in * in; RW = rail_relief_wid_in * in;
 
 module keel() {
-    difference() {
-        union() {
-            rotate([90, 0, 90]) translate([0, 0, -L/2]) linear_extrude(L) keel_profile();
-            if (set_tab)   // fin hanging below the bottom, on the -Y side, sitting in the groove behind the foam lip
-                translate([-TL/2, -(WT/2 - TC), -TD]) cube([TL, TT, TD + 1]);
-            if (end_stops)
-                for (s = [-1, 1])
-                    translate([s * (L/2 + SG + ST/2), 0, KH/2])
-                        cube([ST, WT + 2 * SO, KH], center = true);
+    union() {
+        difference() {
+            union() {
+                rotate([90, 0, 90]) translate([0, 0, -L/2]) linear_extrude(L) keel_profile();
+                if (end_stops)
+                    for (s = [-1, 1])
+                        translate([s * (L/2 + SG + ST/2), 0, KH/2])
+                            cube([ST, WT + 2 * SO, KH], center = true);
+            }
+            // relief over the foam-lip rails, both bottom edges (keel must hang on the vee faces, not the rails)
+            if (set_tab)
+                for (sy = [-1, 1])
+                    translate([-L/2 - 1, sy > 0 ? WT/2 - RW : -WT/2 - 1, -1]) cube([L + 2, RW + 1, RR + 1]);
+            // pocket for the top piece
+            translate([0, 0, KH - pocket_depth_in * in])
+                linear_extrude(pocket_depth_in * in + 1)
+                    offset(r = pocket_clear_in * in) square([pocket_len_in * in, pocket_wid_in * in], center = true);
+            // two bolts from below: clearance hole + deep counterbore for the head (4 mm T-handle reaches)
+            for (s = [-1, 1]) {
+                bx = s * bolt_cc_in * in / 2;
+                translate([bx, 0, -1]) cylinder(d = bolt_dia_in * in, h = KH + 2);
+                translate([bx, 0, -1]) cylinder(d = head_cbore_in * in, h = KH - pocket_depth_in * in - keel_under_bolt_in * in + 1);
+            }
         }
-        // relief over the foam-lip rails, both bottom edges (keel must hang on the vee faces, not the rails)
+        // set-tab: fin hanging below the bottom on the -Y side, sitting in the jaw's foam slot (slot is against the vee-face
+        // plane, lip is 0.10" further in, so the fin at 0.01-0.08" from the edge clears the lip). Added AFTER the relief and
+        // carried 1 mm up past it into the web, so it is one body with the keel. Above the vee edge it stands in open air.
         if (set_tab)
-            for (sy = [-1, 1])
-                translate([-L/2 - 1, sy > 0 ? WT/2 - RW : -WT/2 - 1, -1]) cube([L + 2, RW + 1, RR + 1]);
-        // pocket for the top piece
-        translate([0, 0, KH - pocket_depth_in * in])
-            linear_extrude(pocket_depth_in * in + 1)
-                offset(r = pocket_clear_in * in) square([pocket_len_in * in, pocket_wid_in * in], center = true);
-        // two bolts from below: clearance hole + deep counterbore for the head (4 mm T-handle reaches)
-        for (s = [-1, 1]) {
-            bx = s * bolt_cc_in * in / 2;
-            translate([bx, 0, -1]) cylinder(d = bolt_dia_in * in, h = KH + 2);
-            translate([bx, 0, -1]) cylinder(d = head_cbore_in * in, h = KH - pocket_depth_in * in - keel_under_bolt_in * in + 1);
-        }
+            translate([-TL/2, -(WT/2 - TC), -TD]) cube([TL, TT, TD + RR + 1]);
     }
 }
 

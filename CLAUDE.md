@@ -10,7 +10,7 @@ Printed light-vee soft jaws + keel dock for the Harbor Freight Doyle 4-1/2 in sw
   wedge carrying the artwork. Bolts on with 1/4-20 × 3/4 button heads (blind holes) and 1 in fender washers through ±1/8 in slots (the vise is 1/4-20, not M6).
   Plain and DCV-branded (wordmark + DCV-AT.COM) variants. Current rev **Q**.
 - **Keel dock** — double-vee block, the negative of the jaw vee, drops between the jaws and
-  carries a swappable insert. Current **v7**.
+  carries a swappable insert. Current **v8** (v7 shipped with the set-tab as a separate floating body — the rail relief was cut through its root).
 - **PMAG insert** — magwell stub on a nut-trap base for the keel pocket. **v4**.
 - **Handwheel** — clips over the vise's Ø15 sliding T-bar, rides on the Ø38 hub with crush ribs, two cable ties.
   **Rev D** plain / **Rev E** with the full DCV logo + LEFTY LOOSE / RIGHTY TIGHT arc debossed in the face

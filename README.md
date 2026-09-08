@@ -63,7 +63,7 @@ captured nuts. Two 1/4-20 screws up through the keel hold it. Swap the insert, s
 | `jaw_4.5in_Q_plain_UPRIGHT_PRINT.stl` | Same jaw upright, if you want both jaws the same way | Upright | Under the saddle only |
 | `jaw_4.5in_Q_DCV_public_UPRIGHT_PRINT.stl` | Movable jaw with the DCV wordmark and DCV-AT.COM debossed in the back wedge (cleanest artwork) | Upright | Under the saddle only |
 | `jaw_4.5in_Q_DCV_public_ONEND_PRINT.stl` | Same, with 45° ceilings cut into the artwork so it prints on end with no support (strongest) | On end | None |
-| `dock_keel_4.5in_v7_ONEND_PRINT.stl` | Keel dock | On an end face ("pop can") | None |
+| `dock_keel_4.5in_v8_ONEND_PRINT.stl` | Keel dock (v8 — v7's set-tab was a detached body, never print v7) | On an end face ("pop can") | None |
 | `dock_mag_insert_PMAG_v4_PRINT.stl` | PMAG magwell insert for the keel (cloned PMAG geometry on a nut-trap base) | Base down | None |
 | `jaw_hole_pattern_Q_test_plate_PRINT.stl` | 0.2 in coupon of the Rev Q slot pattern (2.40 centres, 9/32 holes) — print first to check your screw spacing | Flat | None |
 | `vise_handwheel_E_PRINT.stl` | 6-1/2 in handwheel that clips over the vise's sliding T-bar, full DCV logo and a LEFTY LOOSE / RIGHTY TIGHT arrow arc debossed in the face (bonus part, see below) | Face down | None |

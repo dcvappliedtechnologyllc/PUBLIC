@@ -68,6 +68,7 @@ Dock:
 | D | Keel shortened to 4.50 in; set-tab in the foam groove; rail reliefs | "the base could have a mating tab to interface with the foam groove" |
 | E | Set-tab full length; **keel printed on end ("like a pop can")** | tab, pocket and reliefs all become vertical walls — no support |
 | v6 | Set-tab 0.10 → 0.07 | Rev I slot is 0.10 |
+| v8 | Set-tab unioned **after** the rail reliefs and carried 1 mm up into the web | Since Rev D the relief (0.08 high, cut last) went straight through the tab's 1 mm root, so the tab was a second, floating body in every keel STL from D to v7. Nobody had sliced a keel since the reliefs went in; caught in Orca before printing. The STL now splits into one body (`trimesh.split`) — check that on every keel export. |
 | v7 / insert v4 | 1/4-20 | see jaw Rev N. Insert stub also sunk 0.2 mm into its base so the union overlaps instead of sharing a face (the shared face came back as non-manifold edges after STL round-trip). |
 
 Handwheel (Rev A–E): the sliding T-bar is always off-centre and needs flipping; a disc that clips onto the
@@ -172,7 +173,9 @@ will be much stiffer.
    on the face without bowing.
 4. **Keel float.** Confirm the keel sits 0.04 low on the tab and lifts onto the vee faces as the
    jaws close, and that the 0.07 tab clears the 0.10 slot in nylon.
-5. **Handwheel Rev D/E fit.** Rev C was loose on the hub; D/E have 0.4 mm clearance + 0.8 mm ribs.
+5. **Keel v8 tab.** The fin now runs through the relief zone at 0.01–0.08 in from the vee edge; the lip
+   starts at 0.10. Confirm it drops into the slot and the keel still hangs on the vee faces, not the lip.
+6. **Handwheel Rev D/E fit.** Rev C was loose on the hub; D/E have 0.4 mm clearance + 0.8 mm ribs.
    Confirm it taps on and holds, and that the ties now bear on the bar. Check the debossed
    TECHNOLOGY strokes (~0.8 mm) resolve with the 0.6 mm nozzle.
 5. **PA612-CF.** No profile yet. Flow and temperature tower before committing the spool; check
