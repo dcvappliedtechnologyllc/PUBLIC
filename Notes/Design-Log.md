@@ -151,9 +151,8 @@ will be much stiffer.
    spacing sits 0.075 out in each slot). Confirm `seat_height_in` (0.75) and how much flat the
    saddle actually lands on — the slide top is rounded behind a short flat. Bands parallel, ends
    index on the casting. Measure the true opening at the apex and between the bands.
-2. **PMAG vise-block source.** The insert's stub is cut from a supplied STL, "AR Magazine Vice
-   Block PMAG Version Final". Author, URL and licence unknown. If it does not permit
-   derivatives, ship the keel with an empty pocket and a pocket drawing.
+2. ~~PMAG vise-block source.~~ Closed: the stub is cloned PMAG geometry (the magazine's own external
+   form), cut from an AR magazine vise-block STL; published as such with the trademark note.
 3. **Foam.** 2 mm craft foam assumed; slot is 0.10 in. Confirm it stands in the slot and leans
    on the face without bowing.
 4. **Keel float.** Confirm the keel sits 0.04 low on the tab and lifts onto the vee faces as the

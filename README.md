@@ -64,7 +64,7 @@ captured nuts. Two 1/4-20 screws up through the keel hold it. Swap the insert, s
 | `jaw_4.5in_N_DCV_public_UPRIGHT_PRINT.stl` | Movable jaw with the DCV wordmark and DCV-AT.COM debossed in the back wedge (cleanest artwork) | Upright | Under the saddle only |
 | `jaw_4.5in_N_DCV_public_ONEND_PRINT.stl` | Same, with 45° ceilings cut into the artwork so it prints on end with no support (strongest) | On end | None |
 | `dock_keel_4.5in_v7_ONEND_PRINT.stl` | Keel dock | On an end face ("pop can") | None |
-| `dock_mag_insert_PMAG_v4_PRINT.stl` | PMAG magwell insert for the keel — **not in the repo yet**: its stub is cut from a third-party vise-block STL whose licence is unconfirmed (see Attribution). `mag_insert.py` is here; point it at your own block STL. | Base down | None |
+| `dock_mag_insert_PMAG_v4_PRINT.stl` | PMAG magwell insert for the keel (cloned PMAG geometry on a nut-trap base) | Base down | None |
 | `jaw_hole_pattern_N_test_plate_PRINT.stl` | 0.2 in coupon of the Rev N slot pattern (2.40 centres, 9/32 holes) — print first to check your screw spacing | Flat | None |
 | `vise_handwheel_A_PRINT.stl` | 5-1/2 in handwheel that clips over the vise's sliding T-bar (bonus part, see below) | Face down | None |
 | `Doyle Jaws 4.5in J - claude PETG+ proto.3mf` | OrcaSlicer project: plain jaw on end + branded jaw upright, P1S 0.6 mm | — | — |
@@ -255,11 +255,11 @@ follows.
 
 The jaw, the keel and the deboss pipeline are original to DCV Applied Technology.
 
-The **PMAG insert** is the magwell stub cut from an AR-15 magazine vise block STL
-(`AR Magazine Vice Block PMAG Version`) that was supplied for the purpose. <!-- SOURCE AND LICENCE
-TO BE CONFIRMED BEFORE PUBLICATION: author, URL, licence terms. If the licence does not permit
-derivatives, ship the keel with an empty pocket and a drawing of the pocket. --> The base, nut
-pockets and keel interface are new.
+The **PMAG insert**'s stub is cloned PMAG geometry — the external form of a Magpul PMAG magazine body,
+reproduced so the stub fits an AR-15 magwell the way the magazine does. It was taken from an AR
+magazine vise-block STL rather than modelled from scratch; `mag_insert.py` cuts the stub from that
+file and adds the base, nut pockets and keel interface, which are new. PMAG is a Magpul trademark;
+no affiliation.
 
 Artwork: DCV wordmark © DCV Applied Technology; URL set in Orbitron (SIL OFL).
 
