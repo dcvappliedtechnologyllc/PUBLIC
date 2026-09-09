@@ -181,6 +181,9 @@ will be much stiffer.
 6. **Handwheel Rev D/E fit.** Rev C was loose on the hub; D/E have 0.4 mm clearance + 0.8 mm ribs.
    Confirm it taps on and holds, and that the ties now bear on the bar. Check the debossed
    TECHNOLOGY strokes (~0.8 mm) resolve with the 0.6 mm nozzle.
-5. **PA612-CF.** No profile yet. Flow and temperature tower before committing the spool; check
-   whether the URL deboss wants 0.6 mm depth on end.
+5. **PA612-CF.** Profile settled by printing, not by towers: 295/290 °C, high-temp plate 60 °C + glue,
+   fan 0–15 %, 9 mm³/s, 5 walls, 40 % 3D honeycomb (David's call over the 25 % gyroid I had — better
+   under the washer pockets in compression, and there was spool to spare). Jaw plate printed
+   2026-09-09 on end, clean; the 0.04 in URL deboss with 45° ceilings resolved with no support.
+   Insert on its own plate afterwards. Still open: weigh what's left of the spool.
 6. **Photos** for the README: jaws on the vise with a handguard; keel + insert with a lower.

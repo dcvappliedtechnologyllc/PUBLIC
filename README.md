@@ -69,7 +69,8 @@ captured nuts. Two 1/4-20 screws up through the keel hold it. Swap the insert, s
 | `vise_handwheel_E_PRINT.stl` | 6-1/2 in handwheel that clips over the vise's sliding T-bar, full DCV logo and a LEFTY LOOSE / RIGHTY TIGHT arrow arc debossed in the face (bonus part, see below) | Face down | None |
 | `vise_handwheel_D_plain_PRINT.stl` | Same wheel, plain face | Face down | None |
 | `Doyle Jaws 4.5in J - claude PETG+ proto.3mf` | OrcaSlicer project: PETG proto plate, plain jaw on end + branded jaw upright, P1S 0.6 mm | — | — |
-| `Doyle Jaws 4.5in Q + PMAG insert - claude PA612-CF15.3mf` | OrcaSlicer project: the nylon plate — both jaws on end + PMAG insert, PA612-CF15 presets baked in (11 h, 381 g) | — | — |
+| `Doyle Jaws 4.5in Q + PMAG insert - claude PA612-CF15.3mf` | OrcaSlicer project: the nylon jaw plate — both jaws on end, PA612-CF15 presets baked in (as printed 2026-09-09: 5 walls, 40 % 3D honeycomb) | — | — |
+| `PMAG insert - claude PA612-CF15.3mf` | OrcaSlicer project: the insert alone, same presets | — | — |
 
 The jaws are handed only by the artwork. A plain jaw fits either side. The branded jaw reads
 correctly on the **movable** jaw (wedge toward the operator); put it on the fixed side and it
@@ -199,23 +200,25 @@ and a 15° vee (centring component tan 15° = 0.27) cannot out-pull PETG-on-PETG
 Developed on a Bambu P1S, 0.6 mm hardened nozzle, OrcaSlicer. Presets and the sliced plate are in
 the 3MF.
 
-| Setting | Jaws | Keel / insert |
-|---|---|---|
-| Layer | 0.24 mm | 0.24 mm |
-| Walls | 3 | 3 |
-| Infill | 20 % cross hatch, **infill combination on** | 20 % |
-| Support | Tree, **on build plate only**, branded upright jaw only | none |
-| Brim | 6 mm outer | 6 mm |
-| Seam | Back (mounting face) | — |
-| Max volumetric | 15 mm³/s (0.6 nozzle, uncalibrated) | 15 |
+| Setting | Jaws, PETG proto | Jaws + insert, PA612-CF (as printed) | Keel |
+|---|---|---|---|
+| Layer | 0.24 mm (0.30 first) | 0.24 mm (0.30 first) | 0.24 mm |
+| Walls | 3 | **5** (0.62 mm lines) | 5 |
+| Infill | 20 % cross hatch, infill combination on | **40 % 3D honeycomb**, infill combination on | 25–40 % |
+| Top / bottom | 4 / 4 | 4 / 4 | 4 / 4 |
+| Support | Tree, on build plate only, branded upright jaw only | none (both jaws on end) | none |
+| Brim | 6 mm outer | 8 mm outer | 8 mm |
+| Seam | Back (mounting face) | Back | — |
+| Speeds | — | outer wall 100, inner 150, infill 150, bridge 30 mm/s; max 9 mm³/s | as nylon |
+| Other | — | precise outer wall on, elephant-foot 0.15, classic walls | |
 
-Plate time for a pair of jaws is about 5.5 h and 282 g in PETG. The plate is flow-limited: a
+PETG plate time for a pair of jaws is about 5.5 h and 282 g. The plate is flow-limited: a
 0.30 mm layer height on the plain jaw saved nothing measurable, so everything runs at 0.24.
 
 | Material | Where | Notes |
 |---|---|---|
 | **PETG / PETG+** | prototypes, fit checks | 250 °C, textured PEI 75 °C, fan 30–60 %. Slot, lip and screw slots are dimensioned for it. |
-| **PA612-CF** (Polymaker Fiberon) | final jaws + insert | 280–300 °C, bed 40–50 °C with glue, fan 0, **door open, top off** (keep the chamber under 50 °C), dry 8–12 h at 80 °C and feed from a dryer. Low moisture uptake keeps the slot and vee stable in a shop. A pair of jaws + insert is ~320 g of a 500 g spool. Print the jaws on end. |
+| **PA612-CF15** (Polymaker Fiberon) | final jaws + insert | As printed: 295 °C (290 first layer), high-temp plate 60 °C with glue, fan 0–15 % (off for 3 layers, 30 % on overhangs), no chamber control, **door open, top off**, dry 8–12 h at 80 °C and feed from a dryer. 9 mm³/s. Low moisture uptake keeps the slot and vee stable in a shop. Both jaws on end at 5 walls / 40 % 3D honeycomb plus the insert on its own plate fit one 500 g spool. |
 | **PETG-CF** | keel | Compression only; no reason for nylon. |
 | PLA | no | Creeps under sustained clamp load at shop temperatures. |
 
