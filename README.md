@@ -64,7 +64,7 @@ captured nuts. Two 1/4-20 screws up through the keel hold it. Swap the insert, s
 | `jaw_4.5in_R2_DCV_public_UPRIGHT_PRINT.stl` | Movable jaw with the DCV wordmark and DCV-AT.COM debossed in the back wedge (cleanest artwork) | Upright | Under the saddle only |
 | `jaw_4.5in_R2_DCV_public_ONEND_PRINT.stl` | Same, with 45° ceilings cut into the artwork so it prints on end with no support (strongest) | On end | None |
 | `dock_keel_4.5in_v9_ONEND_PRINT.stl` | Keel dock (v9 tee-top; v7/v8 hung on a set-tab and clamped cocked — don't print them) | On an end face ("pop can") | None |
-| `dock_mag_insert_PMAG_v4_PRINT.stl` | PMAG magwell insert for the keel (cloned PMAG geometry on a nut-trap base) | Base down | None |
+| `dock_mag_insert_PMAG_v5_PRINT.stl` | PMAG magwell insert for the keel (cloned PMAG geometry with its sloped magwell seat, on a nut-trap base). v4 was 1/2 in short and the catch never engaged | Base down | None |
 | `jaw_hole_pattern_R2_test_plate_PRINT.stl` | 0.2 in coupon of the Rev R2 slot pattern (2.40 centres, 9/32 holes) — print first to check your screw spacing | Flat | None |
 | `vise_handwheel_E_PRINT.stl` | 6-1/2 in handwheel that clips over the vise's sliding T-bar, full DCV logo and a LEFTY LOOSE / RIGHTY TIGHT arrow arc debossed in the face (bonus part, see below) | Face down | None |
 | `vise_handwheel_D_plain_PRINT.stl` | Same wheel, plain face | Face down | None |
@@ -131,6 +131,8 @@ up with the casting sides.
 | Insert | Value |
 |---|---|
 | Base | 2.64 × 1.34 × 0.40 |
+| Seat | The source block's 11° sloped shoulder, 0.52 tall at the mag's front tapering to nothing at the rear — the rake of the magwell mouth, so the lower sits flat with the stub fully home. Catch notch 2.1–2.3 above the pocket floor |
+| Height | 3.43 over the pocket floor |
 | Nut pockets | 2 × 7/16 AF hex (+0.01 clearance), from the base top out the top of the stub — nuts drop in from above |
 
 ### Handwheel
