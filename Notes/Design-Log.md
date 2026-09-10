@@ -188,6 +188,7 @@ will be much stiffer.
    2026-09-09 on end, clean; the 0.04 in URL deboss with 45° ceilings resolved with no support.
    Insert on its own plate afterwards. Still open: weigh what's left of the spool.
 6. **Keel plate.** `Doyle keel v9 - claude PET-CF17.3mf` built 2026-09-10 straight from the PA612 project
-   file (same process: 5 walls / 40 % 3D honeycomb / 8 mm brim), filament swapped to Polymaker PET-CF17 per
-   their wiki: 270–300 °C, bed 70–80, fan 0, door open. Unprinted.
+   file, then trimmed to 4 walls / 30 % 3D honeycomb / 15 mm³/s at David's call (the part is flow-limited, so
+   layer height buys nothing; less plastic and more flow do), filament Polymaker PET-CF17 per their wiki:
+   270–300 °C, bed 70–80, fan 0, door open. Unprinted.
 6. **Photos** for the README: jaws on the vise with a handguard; keel + insert with a lower.

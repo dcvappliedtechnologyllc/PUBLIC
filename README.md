@@ -71,7 +71,7 @@ captured nuts. Two 1/4-20 screws up through the keel hold it. Swap the insert, s
 | `Doyle Jaws 4.5in J - claude PETG+ proto.3mf` | OrcaSlicer project: PETG proto plate, plain jaw on end + branded jaw upright, P1S 0.6 mm | — | — |
 | `Doyle Jaws 4.5in Q + PMAG insert - claude PA612-CF15.3mf` | OrcaSlicer project: the nylon jaw plate — both jaws on end, PA612-CF15 presets baked in (as printed 2026-09-09: 5 walls, 40 % 3D honeycomb) | — | — |
 | `PMAG insert - claude PA612-CF15.3mf` | OrcaSlicer project: the insert alone, same presets | — | — |
-| `Doyle keel v9 - claude PET-CF17.3mf` | OrcaSlicer project: keel v9 on end, Polymaker PET-CF17 presets baked in (5 walls, 40 % 3D honeycomb, ~7 oz) | — | — |
+| `Doyle keel v9 - claude PET-CF17.3mf` | OrcaSlicer project: keel v9 on end, Polymaker PET-CF17 presets baked in (4 walls, 30 % 3D honeycomb, 15 mm³/s, ~6 oz) | — | — |
 | `Polymaker PET-CF17 @BBL P1S 0.6mm Claude.json` | The PET-CF17 filament preset on its own, importable in Orca | — | — |
 
 The jaws are handed only by the artwork. A plain jaw fits either side. The branded jaw reads
@@ -205,13 +205,13 @@ the 3MF.
 | Setting | Jaws, PETG proto | Jaws + insert, PA612-CF (as printed) | Keel |
 |---|---|---|---|
 | Layer | 0.24 mm (0.30 first) | 0.24 mm (0.30 first) | 0.24 mm |
-| Walls | 3 | **5** (0.62 mm lines) | 5 |
-| Infill | 20 % cross hatch, infill combination on | **40 % 3D honeycomb**, infill combination on | 25–40 % |
+| Walls | 3 | **5** (0.62 mm lines) | 4 |
+| Infill | 20 % cross hatch, infill combination on | **40 % 3D honeycomb**, infill combination on | 30 % 3D honeycomb |
 | Top / bottom | 4 / 4 | 4 / 4 | 4 / 4 |
 | Support | Tree, on build plate only, branded upright jaw only | none (both jaws on end) | none |
 | Brim | 6 mm outer | 8 mm outer | 8 mm |
 | Seam | Back (mounting face) | Back | — |
-| Speeds | — | outer wall 100, inner 150, infill 150, bridge 30 mm/s; max 9 mm³/s | as nylon |
+| Speeds | — | outer wall 100, inner 150, infill 150, bridge 30 mm/s; max 9 mm³/s | as nylon, max 15 mm³/s |
 | Other | — | precise outer wall on, elephant-foot 0.15, classic walls | |
 
 PETG plate time for a pair of jaws is about 5.5 h and 282 g. The plate is flow-limited: a
@@ -221,7 +221,7 @@ PETG plate time for a pair of jaws is about 5.5 h and 282 g. The plate is flow-l
 |---|---|---|
 | **PETG / PETG+** | prototypes, fit checks | 250 °C, textured PEI 75 °C, fan 30–60 %. Slot, lip and screw slots are dimensioned for it. |
 | **PA612-CF15** (Polymaker Fiberon) | final jaws + insert | As printed: 295 °C (290 first layer), high-temp plate 60 °C with glue, fan 0–15 % (off for 3 layers, 30 % on overhangs), no chamber control, **door open, top off**, dry 8–12 h at 80 °C and feed from a dryer. 9 mm³/s. Low moisture uptake keeps the slot and vee stable in a shop. Both jaws on end at 5 walls / 40 % 3D honeycomb plus the insert on its own plate fit one 500 g spool. |
-| **PET-CF17** (Polymaker Fiberon) | keel | Compression only; no reason for nylon. 290 °C, textured PEI 80 °C first layer / 75 after with glue stick, fan 0–10 %, 12 mm³/s, **door open** per Polymaker (enclosure not needed), dry 70 °C 8 h. Anneal 120 °C 10 h if you want the extra stiffness; not required. |
+| **PET-CF17** (Polymaker Fiberon) | keel | Compression only; no reason for nylon. 290 °C, textured PEI 80 °C first layer / 75 after with glue stick, fan 0–10 %, 15 mm³/s (PA612 ran 9), **door open** per Polymaker (enclosure not needed), dry 70 °C 8 h. Anneal 120 °C 10 h if you want the extra stiffness; not required. |
 | PLA | no | Creeps under sustained clamp load at shop temperatures. |
 
 ---
