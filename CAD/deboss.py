@@ -70,7 +70,7 @@ def save(man, path):
     tm.export(path)
     return trimesh.load(path, process=False)
 
-REV = 'r'
+REV = 'r2'
 # Rev R: the pocket roof follows the print orientation, so the on-end print starts from the roof-along-X solid
 jaw = load_manifold(f'jaw45{REV}_plain.stl' if UPRIGHT else f'jaw45{REV}_plain_roofx.stl')
 PUBLIC = '--public' in sys.argv

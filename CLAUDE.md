@@ -8,7 +8,7 @@ Printed light-vee soft jaws + keel dock for the Harbor Freight Doyle 4-1/2 in sw
 - **Jaw** — one extruded profile: 150° vee raised 2 in above the casting, parallel clamping band
   below it, foam slot with a set-back non-bearing lip, saddle over the casting top, solid back
   wedge carrying the artwork. Bolts on with 1/4-20 × 3/4 button heads (blind holes) and 1 in fender washers through ±1/8 in slots (the vise is 1/4-20, not M6).
-  Plain and DCV-branded (wordmark + DCV-AT.COM) variants. Current rev **R** (Q printed in PA612-CF; R fixes the on-end pocket roof direction and the 0.475 in wall under the head).
+  Plain and DCV-branded (wordmark + DCV-AT.COM) variants. Current rev **R2** (Q printed in PA612-CF; R2 gives the on-end pockets a shed roof and the 0.475 in wall under the head).
 - **Keel dock** — double-vee block, the negative of the jaw vee, hangs from a tee flange on the jaw tops and
   carries a swappable insert. Current **v9**. v1–v8 hung on a set-tab in the foam slot and clamped cocked (see Design Log); the tab is retired, not to be reinstated.
 - **PMAG insert** — magwell stub on a nut-trap base for the keel pocket. **v4**.
@@ -27,9 +27,11 @@ Printed light-vee soft jaws + keel dock for the Harbor Freight Doyle 4-1/2 in sw
   into a rail.
 - Bottom-of-feature edges get chamfers (upright print overhangs), top edges get fillets.
   Slot floor stays sharp.
-- **A roof is only a roof in one orientation.** Any 45° ceiling on a hole or pocket must point along the
-  axis that is up in the print it is for — `pocket_roof = "auto"` does that; do not hard-code +Z. Audit every
-  on-end export for downward faces steeper than 45° (trimesh: face normal z < −0.707, above the bed).
+- **A roof is only a roof in one orientation, and a 45° face is only printable if it grows off solid.** A 45° slope
+  whose lower layers are open air (a pocket open through the jaw bottom) is a cantilever with a nice angle — R1
+  made that mistake. `pocket_roof = "auto"` picks the shed roof on end and the teardrop upright. Check every
+  print-oriented export with `CAD/printcheck.py`: it slices layer by layer and reports material with nothing
+  under it. Face-angle audits are not enough.
 - Draw the clamp stack (bolt, nut, what each bears on) before modelling any fastened joint.
   Two dock revisions were wrong because this was skipped.
 - All hardware is **1/4-20**. Do not reintroduce M6 anywhere.
@@ -40,7 +42,7 @@ Printed light-vee soft jaws + keel dock for the Harbor Freight Doyle 4-1/2 in sw
 
 ```
 CAD/        doyle_vee_jaw.scad, deboss.py, art_logo_public.scad + .svg, dcv_wordmark.svg,
-            dock_keel.scad, mag_insert.py, vise_handwheel.scad, handwheel_face.py + dcv_logo_poly.svg,
+            dock_keel.scad, mag_insert.py, vise_handwheel.scad, handwheel_face.py + dcv_logo_poly.svg, printcheck.py,
             print-ready STLs, the Orca 3MFs, previews/
 README.md   the published doc (repo root, so GitHub renders it)
 LICENSE     CERN-OHL-S v2
