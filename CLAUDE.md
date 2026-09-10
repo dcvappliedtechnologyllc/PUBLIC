@@ -11,7 +11,8 @@ Printed light-vee soft jaws + keel dock for the Harbor Freight Doyle 4-1/2 in sw
   Plain and DCV-branded (wordmark + DCV-AT.COM) variants. Current rev **R2** (Q printed in PA612-CF; R2 gives the on-end pockets a shed roof and the 0.475 in wall under the head).
 - **Keel dock** — double-vee block, the negative of the jaw vee, hangs from a tee flange on the jaw tops and
   carries a swappable insert. Current **v9**. v1–v8 hung on a set-tab in the foam slot and clamped cocked (see Design Log); the tab is retired, not to be reinstated.
-- **PMAG insert** — magwell stub on a nut-trap base for the keel pocket. **v4**.
+- **PMAG insert** — magwell stub with its sloped seat on a nut-trap base for the keel pocket. **v5** (v4 cut the seat off
+  and the mag catch never engaged; the slant in the source block is the seat, not a tang).
 - **Handwheel** — clips over the vise's Ø15 sliding T-bar, rides on the Ø38 hub with crush ribs, two cable ties.
   **Rev D** plain / **Rev E** with the full DCV logo + LEFTY LOOSE / RIGHTY TIGHT arc debossed in the face
   (`handwheel_face.py`). Rev C printed and fitted; D/E unprinted.
