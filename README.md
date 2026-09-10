@@ -71,7 +71,7 @@ captured nuts. Two 1/4-20 screws up through the keel hold it. Swap the insert, s
 | `Doyle Jaws 4.5in J - claude PETG+ proto.3mf` | OrcaSlicer project: PETG proto plate, plain jaw on end + branded jaw upright, P1S 0.6 mm | — | — |
 | `Doyle Jaws 4.5in Q + PMAG insert - claude PA612-CF15.3mf` | OrcaSlicer project: the nylon jaw plate — both jaws on end, PA612-CF15 presets baked in (as printed 2026-09-09: 5 walls, 40 % 3D honeycomb) | — | — |
 | `PMAG insert - claude PA612-CF15.3mf` | OrcaSlicer project: the insert alone, same presets | — | — |
-| `Doyle keel v9 - claude PET-CF17.3mf` | OrcaSlicer project: keel v9 on end, Polymaker PET-CF17 presets baked in (4 walls, 30 % 3D honeycomb, 15 mm³/s, ~6 oz) | — | — |
+| `Doyle keel v9 + PMAG insert v5 - claude PET-CF17.3mf` | OrcaSlicer project, sliced: keel v9 on end + insert v5, Polymaker PET-CF17 presets baked in (0.24, 4 walls, 30 % 3D honeycomb, 15 mm³/s, 8 mm brim). 4 h 55 m, 259 g | — | — |
 | `Polymaker PET-CF17 @BBL P1S 0.6mm Claude.json` | The PET-CF17 filament preset on its own, importable in Orca | — | — |
 
 The jaws are handed only by the artwork. A plain jaw fits either side. The branded jaw reads
