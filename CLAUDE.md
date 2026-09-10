@@ -13,6 +13,9 @@ Printed light-vee soft jaws + keel dock for the Harbor Freight Doyle 4-1/2 in sw
   carries a swappable insert. Current **v9**. v1–v8 hung on a set-tab in the foam slot and clamped cocked (see Design Log); the tab is retired, not to be reinstated.
 - **PMAG insert** — magwell stub with its sloped seat on a nut-trap base for the keel pocket. **v5** (v4 cut the seat off
   and the mag catch never engaged; the slant in the source block is the seat, not a tang).
+- **Reaction-rod clamshell** — keel-profile halves with a D-channel for a Geissele Reaction Rod (0.995/0.745),
+  band grooves, loose pins, 3.50 in at the front of the jaws. **Rev A, draft, unprinted** — `rod_clamshell.scad`.
+  Rev B needs the rod-behind-receiver measurement before anything else changes.
 - **Handwheel** — clips over the vise's Ø15 sliding T-bar, rides on the Ø38 hub with crush ribs, two cable ties.
   **Rev D** plain / **Rev E** with the full DCV logo + LEFTY LOOSE / RIGHTY TIGHT arc debossed in the face
   (`handwheel_face.py`). Rev C printed and fitted; D/E unprinted.

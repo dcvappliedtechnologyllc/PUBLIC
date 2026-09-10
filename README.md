@@ -65,6 +65,7 @@ captured nuts. Two 1/4-20 screws up through the keel hold it. Swap the insert, s
 | `jaw_4.5in_R2_DCV_public_ONEND_PRINT.stl` | Same, with 45° ceilings cut into the artwork so it prints on end with no support (strongest) | On end | None |
 | `dock_keel_4.5in_v9_ONEND_PRINT.stl` | Keel dock (v9 tee-top; v7/v8 hung on a set-tab and clamped cocked — don't print them) | On an end face ("pop can") | None |
 | `dock_mag_insert_PMAG_v5_PRINT.stl` | PMAG magwell insert for the keel (cloned PMAG geometry with its sloped magwell seat, on a nut-trap base). v4 was 1/2 in short and the catch never engaged | Base down | None |
+| `rod_clamshell_geissele_A_ONEND_PRINT.stl` | **Draft.** Reaction-rod clamshell: two keel-profile halves that close on a Geissele Reaction Rod (Ø0.995 / 0.745 flats), flats facing the jaws, 0.030 in parting gap, two V-grooves for rubber-band preload, two loose 1/8 in register pins. 3.50 in long; sits at the front end of the jaws so the rod still reaches the barrel extension. Rev B waits on a rod-protrusion measurement | On end, both halves + pins | None |
 | `jaw_hole_pattern_R2_test_plate_PRINT.stl` | 0.2 in coupon of the Rev R2 slot pattern (2.40 centres, 9/32 holes) — print first to check your screw spacing | Flat | None |
 | `vise_handwheel_E_PRINT.stl` | 6-1/2 in handwheel that clips over the vise's sliding T-bar, full DCV logo and a LEFTY LOOSE / RIGHTY TIGHT arrow arc debossed in the face (bonus part, see below) | Face down | None |
 | `vise_handwheel_D_plain_PRINT.stl` | Same wheel, plain face | Face down | None |
@@ -251,6 +252,16 @@ PETG plate time for a pair of jaws is about 5.5 h and 282 g. The plate is flow-l
    (it leans on the upper vee face and stays put), close the movable jaw until the flange is down
    on both jaws and the upper faces have it. Push it down as you snug up; it should not move.
 
+### Reaction-rod clamshell (draft, unprinted)
+
+Same double-vee outline as the keel, split down a vertical plane with a D-channel for the rod. The rod's
+vise flats face the jaws, so the clamp goes straight through the flats and the torque is taken by the flat
+edges, not by friction on the round. Loop two #64 rubber bands (doubled) or 1/16 in O-rings in the grooves
+so the shell stays on the rod between jobs; the pins keep the halves from shearing before the vise is on.
+The shell is 3.50 in, shorter than the keel, and goes at the **front** end of the jaws: the receiver cannot
+sit over these jaws (the rod is 1 in below the jaw tops), so the shell length is what's left of the rod
+behind the receiver once the lugs are in the barrel extension. Measure that before printing.
+
 ---
 
 ## Regenerating
@@ -265,6 +276,7 @@ CAD/
                          needs manifold3d, trimesh, shapely.
   art_logo_public.scad   the wedge artwork (DCV wordmark + URL) -> art_logo_public.svg via OpenSCAD.
   dock_keel.scad         keel; print_on_end = true.
+- `CAD/rod_clamshell.scad` → `rod_clamshell_geissele_A_ONEND_PRINT.stl` (`print_on_end = true`; both halves and two pins on one plate).
   mag_insert.py          cuts the magwell stub from a vise-block STL and adds the nut-trap base.
 ```
 
