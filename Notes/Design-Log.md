@@ -49,6 +49,7 @@ the same job with no geometry, and the user's stated preference was fewer clever
 | G | Lip rail thinned to 0.155 | rail crush concern |
 | G2/H | **Lip removed, band left as a flat shelf**; section trimmed 29 % (28.4 → 20.3 in³): back-to-apex 0.75 → 0.60, wedge 1.50 → 0.60, saddle 1.50 → 1.25 | "why not remove this? prevents that spot from ever seeing clamping load" — a flush lip was the one thin feature in the load path. Then "rethink the geometry, reduce the cross section, keep height" |
 | I | **Slot back with a set-back lip**; saddle cut flush with the wedge base (tail removed); band 0.275 → 0.325 proud | the foam slot was wanted after all, but with a profile that keeps clamping load off it. Lip face 0.08 behind the band plane, 0.145 thick so it isn't fragile. The 0.65 in of saddle past the wedge did nothing structural. |
+| R | **Pocket roof follows the print orientation; wall under the head 0.35 → 0.475** | Rev Q printed in PA612-CF (2026-09-09, 5 walls / 40 % 3D honeycomb) and came out "super strong", but the top corners of the pockets drooped: the Q roof pointed at the vee (+Z), which is up only for the upright print. On end, +X is up, so the pocket crown and the flat ceiling of the open-bottom notch were 90° overhangs. Audit of the on-end STL: 1,586 mm² of >45° ceiling; Rev R 23 mm² outside the intended bridges. The roof now points along print-up with a 0.40 in flat (10 mm bridge) at the apex and runs at 45° out through the jaw bottom, so the notch has no ceiling; the 9/32 hole gets a small roof too. Second finding: the 3/4 in screws bottomed in the blind holes at the 0.35 wall — the holes are ~0.2 in deep, not the 0.34 assumed at Rev P — fixed on the vise with two M6 flats, so the wall is now 0.475 (= 0.35 + 0.125). Lesson recorded in CLAUDE.md: a roof is only a roof in one orientation; audit every on-end export. |
 | Q | **Teardrop roof on the washer pockets** | Orca flagged the Ø1.06 round pocket as a floating cantilever on the on-end print (its crown goes flat). A 45° roof with a 1/4 in flat at the apex fixes it in either orientation; apex 1.14 up, band top 1.45. The residual Orca warning on the on-end jaws is the 9/32 hole crown, a 7 mm bridge — ignored. |
 | P | **Wall under the washer 0.50 → 0.35** | The casting's screw holes are blind: 1-1/4 bottoms out, 1 in wasn't on the shelf, 3/4 mounted but with only 0.19 of thread. The wall behind the washer is in pure compression, so it can be thin; 0.35 gives a 3/4 in screw 0.34 in (7 turns) of engagement. |
 | O | Washer pockets Ø0.82 → **Ø1.06 for 1 in fender washers** | Only 1 in fenders on the shelf. Since the pocket is open through the bottom and the washer sits past the ledge, OD is free up to the pocket; 1 in hangs 0.15 below the jaw over air. Bearing ~350 psi. A small washer under the head bridges the fender's 5/16 hole. |
@@ -163,10 +164,9 @@ will be much stiffer.
 
 ## Open items — close before publication
 
-1. **Fit on the vise.** Rev J PETG+ pair is the first fitted print (2.25 nominal; the real 2.40
-   spacing sits 0.075 out in each slot). Confirm `seat_height_in` (0.75) and how much flat the
-   saddle actually lands on — the slide top is rounded behind a short flat. Bands parallel, ends
-   index on the casting. Measure the true opening at the apex and between the bands.
+1. **Fit on the vise.** Rev J PETG+ and Rev Q PA612-CF both fitted and clamped; 2.40 centres confirmed,
+   saddle lands, bands parallel. Still to record: the true opening at the apex and between the bands, and the
+   casting's blind-hole depth with a pin (R assumes ~0.2 in from the two-washer fix).
 2. **PMAG vise-block source.** The insert's stub is cut from a supplied STL, "AR Magazine Vice
    Block PMAG Version Final". Author, URL and licence unknown. If it does not permit
    derivatives, ship the keel with an empty pocket and a pocket drawing.

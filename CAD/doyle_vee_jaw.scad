@@ -1,4 +1,8 @@
-// Doyle Light-Vee Jaw  —  Rev Q  (Rev P + teardrop roof on the washer pockets so the on-end print has no near-horizontal arch)
+// Doyle Light-Vee Jaw  —  Rev R  (Rev Q printed in PA612-CF, 2026-09-09: (1) the Rev Q pocket roof pointed toward the vee (+Z), which
+// is only "up" for the UPRIGHT print; on end, print-up is +X, so the pocket crowns and the open-bottom ceilings were flat 90deg overhangs
+// and the corners drooped. Rev R points the roof along whichever axis is up for the chosen orientation (pocket_roof = "auto"), with a
+// 0.40" flat at the peak (a 10 mm bridge) instead of a knife point. (2) The 3/4" screws bottomed in the casting's blind holes with a 0.35"
+// wall — two M6 flats (0.125") under the fender fixed it — so wall_under_head is 0.475". Material verdict: "totally f***s, super strong".)
 // Printed vee jaw for the Harbor Freight Doyle 4-1/2" swivel vise (HF #57737)
 // Print two. Model is in mm; every parameter below is entered in inches.
 // Modeled upright (Z = height, +Y = toward the workpiece, -Y = over the vise).
@@ -49,8 +53,12 @@ thru_dia_in         = 0.28;   // 9/32 clearance for 1/4-20 (the vise's jaw screw
 cbore_dia_in        = 1.06;   // clears a 1" OD fender washer; pocket is open through the jaw bottom, washer hangs 0.15" below it over air past the ~3/8" ledge
 slot_travel_in      = 0.25;   // horizontal slot travel (1/8" each way)
 slot_vert_in        = 0.08;   // vertical slop: the machined ledge sets the height, the saddle lands where the rough casting top puts it, the screws never fight either
-wall_under_head_in  = 0.35;   // solid plastic between washer and casting (in compression; 0.35 leaves a 3/4" 1/4-20 with 0.34" of engagement)
+wall_under_head_in  = 0.475;  // solid plastic between washer and casting (in compression). 0.35 let a 3/4" screw bottom in the blind hole;
+                              // 0.475 (= 0.35 + two M6 flats, as fitted) leaves ~0.21" of thread, which is what the hole actually has
 cbore_open_bottom   = true;   // washer pocket opens through the jaw bottom (no knife-edge sliver under a 16 mm washer; the plate seat closes it)
+pocket_roof         = "auto"; // 45deg roof direction on the washer pockets: "z" (toward the vee: upright print), "x" (along the length:
+                              // on-end print, +X is up), "none". "auto" follows print_orientation.
+roof_flat_in        = 0.40;   // flat at the roof peak (bridged) instead of a knife point; shortens the roof by half this
 
 /* [Branding — reads correctly on the MOVABLE jaw (wedge faces the operator)] */
 brand_logo          = false;  // DCV Applied Technology logo debossed into the back wedge
@@ -186,16 +194,29 @@ module vee_wedge_2d() {
 }
 
 // rounded-rectangle slot, axis along Y, from y0 to y1
-module slot(d, x, z, y0, y1, vert = 0, open_bottom = false, teardrop = false) {
+ROOF = pocket_roof == "auto" ? (print_orientation ? "x" : "z") : pocket_roof;
+RFL  = roof_flat_in * in;
+
+module slot(d, x, z, y0, y1, vert = 0, open_bottom = false, roof = "none", flat = RFL) {
+    // slot along X (travel SLOT), cylinders along Y (depth), vertical slop VERT along Z. Local frame after rotate([-90,0,0]):
+    // local x = jaw X, local -y = jaw Z, local z = jaw Y.
+    r  = d / 2;
+    h  = r * sqrt(2) - flat / 2;       // roof flat height above the bore centre: 45deg tangents from the flat's ends to the bore
     translate([x, y0, z]) rotate([-90, 0, 0])
         hull() {
             for (sx = [-1, 1], sz = [-1, 1])
                 translate([sx * SLOT/2, sz * vert/2, 0]) cylinder(d = d, h = y1 - y0);
-            if (teardrop)   // 45deg roof: apex at r*sqrt(2) above centre, so no arch crown goes flat on the on-end print
-                for (sx = [-1, 1]) translate([sx * SLOT/2, -(vert/2 + d/2 * sqrt(2)), 0]) cylinder(d = 0.5, h = y1 - y0, $fn = 8);
+            if (roof == "z")   // roof toward +Z (jaw height): flat of RFL along X, h above the upper bore centres
+                for (sx = [-1, 1]) translate([sx * (SLOT/2 + flat/2), -(vert/2 + h), 0]) cylinder(d = 0.5, h = y1 - y0, $fn = 8);
+            if (roof == "x")   // roof toward +X (jaw length = print-up on end): flat of RFL along Z, h beyond the +X bore centres
+                for (sz = [-1, 1]) translate([SLOT/2 + h, sz * (vert/2 + flat/2), 0]) cylinder(d = 0.5, h = y1 - y0, $fn = 8);
         }
-    if (open_bottom)   // straight walls from the bore centreline down through the jaw bottom
-        translate([x - SLOT/2 - d/2, y0, -1]) cube([SLOT + d, y1 - y0, z + 1]);
+    if (open_bottom) {   // straight walls from the bore centreline down through the jaw bottom.
+        // With the roof along +X the +X wall of this notch would be a flat ceiling on the on-end print, so the notch stops
+        // inside the roof line there (the 45deg roof itself runs out through the jaw bottom).
+        xp = roof == "x" ? SLOT/2 + h - z + flat/2 - 0.5 : SLOT/2 + d/2;
+        translate([x - SLOT/2 - d/2, y0, -1]) cube([SLOT/2 + d/2 + xp, y1 - y0, z + 1]);
+    }
 }
 
 module magnet_pocket(x, upper) {
@@ -268,8 +289,8 @@ module jaw() {
         }
         if (!(ease_edges && foam_lip)) rotate([90, 0, 90]) translate([0, 0, -1]) linear_extrude(L + 2) vee_wedge_2d();
         for (x = [L/2 - CC/2, L/2 + CC/2]) {
-            slot(thru_dia_in * in, x, SH, -FD - 1, YMAX + 5, SLV);
-            slot(cbore_dia_in * in, x, SH, wall_under_head_in * in, YMAX + 5, SLV, cbore_open_bottom, teardrop = true);
+            slot(thru_dia_in * in, x, SH, -FD - 1, YMAX + 5, SLV, roof = ROOF, flat = thru_dia_in * in / 4);   // small roof on the 9/32 too
+            slot(cbore_dia_in * in, x, SH, wall_under_head_in * in, YMAX + 5, SLV, cbore_open_bottom, roof = ROOF);
         }
         if (magnet_pockets)
             for (mx = magnet_x_in) for (u = [true, false]) if (mx * in < L) magnet_pocket(mx * in, u);

@@ -59,13 +59,13 @@ captured nuts. Two 1/4-20 screws up through the keel hold it. Swap the insert, s
 
 | File | What it is | Print orientation | Support |
 |---|---|---|---|
-| `jaw_4.5in_Q_plain_ONEND_PRINT.stl` | Plain jaw. Print two, or one of these + one branded. | Standing on an end face (as delivered) | None |
-| `jaw_4.5in_Q_plain_UPRIGHT_PRINT.stl` | Same jaw upright, if you want both jaws the same way | Upright | Under the saddle only |
-| `jaw_4.5in_Q_DCV_public_UPRIGHT_PRINT.stl` | Movable jaw with the DCV wordmark and DCV-AT.COM debossed in the back wedge (cleanest artwork) | Upright | Under the saddle only |
-| `jaw_4.5in_Q_DCV_public_ONEND_PRINT.stl` | Same, with 45° ceilings cut into the artwork so it prints on end with no support (strongest) | On end | None |
+| `jaw_4.5in_R_plain_ONEND_PRINT.stl` | Plain jaw. Print two, or one of these + one branded. | Standing on an end face (as delivered) | None |
+| `jaw_4.5in_R_plain_UPRIGHT_PRINT.stl` | Same jaw upright, if you want both jaws the same way | Upright | Under the saddle only |
+| `jaw_4.5in_R_DCV_public_UPRIGHT_PRINT.stl` | Movable jaw with the DCV wordmark and DCV-AT.COM debossed in the back wedge (cleanest artwork) | Upright | Under the saddle only |
+| `jaw_4.5in_R_DCV_public_ONEND_PRINT.stl` | Same, with 45° ceilings cut into the artwork so it prints on end with no support (strongest) | On end | None |
 | `dock_keel_4.5in_v9_ONEND_PRINT.stl` | Keel dock (v9 tee-top; v7/v8 hung on a set-tab and clamped cocked — don't print them) | On an end face ("pop can") | None |
 | `dock_mag_insert_PMAG_v4_PRINT.stl` | PMAG magwell insert for the keel (cloned PMAG geometry on a nut-trap base) | Base down | None |
-| `jaw_hole_pattern_Q_test_plate_PRINT.stl` | 0.2 in coupon of the Rev Q slot pattern (2.40 centres, 9/32 holes) — print first to check your screw spacing | Flat | None |
+| `jaw_hole_pattern_R_test_plate_PRINT.stl` | 0.2 in coupon of the Rev R slot pattern (2.40 centres, 9/32 holes) — print first to check your screw spacing | Flat | None |
 | `vise_handwheel_E_PRINT.stl` | 6-1/2 in handwheel that clips over the vise's sliding T-bar, full DCV logo and a LEFTY LOOSE / RIGHTY TIGHT arrow arc debossed in the face (bonus part, see below) | Face down | None |
 | `vise_handwheel_D_plain_PRINT.stl` | Same wheel, plain face | Face down | None |
 | `Doyle Jaws 4.5in J - claude PETG+ proto.3mf` | OrcaSlicer project: PETG proto plate, plain jaw on end + branded jaw upright, P1S 0.6 mm | — | — |
@@ -86,7 +86,7 @@ All 1/4-20. The vise's own jaw screws are 1/4-20 button heads (5/32 hex) — the
 
 | Qty | Part | Where |
 |---|---|---|
-| 4 | 1/4-20 × **3/4 in** button-head socket cap screw (5/32 hex) | jaws. The casting's holes are blind: 3/4 in gives 0.34 in of thread with the 0.35 in wall; 1 in also fits, 1-1/4 bottoms out. |
+| 4 | 1/4-20 × **3/4 in** button-head socket cap screw (5/32 hex) | jaws. The casting's holes are blind and only ~0.2 in deep: 3/4 in through the 0.475 in wall + fender is right; a 0.35 in wall (Rev Q) let 3/4 in bottom out; 1 in and 1-1/4 bottom out. |
 | 4 | **1/4 in fender washer, 1 in OD** (5/16 hole), ~1/16 thick | under the button heads — the big washer is what carries the prying load. Its bottom edge hangs 0.15 in below the jaw, over air past the casting's ~3/8 in ledge. A 3/4 in OD SAE flat washer also fits the pocket. |
 | 4 | 1/4 in SAE flat washer (the ones that came on the vise are fine) | between the button head and the fender washer — a 1/4-20 button head is only 0.44 in across and a fender washer's hole is 5/16, so this bridges it |
 | 2 | 1/4-20 × 1-1/4 in button-head socket cap screw | keel → insert, from below, no washer (the head bears in a Ø0.52 bore) |
@@ -113,7 +113,7 @@ up with the casting sides.
 | Foam slot | 0.10 wide × 0.30 deep, against the vee |
 | Lip | 0.145 thick, top flush with the lower vee edge, face 0.08 **behind** the band clamp plane |
 | Screw pattern | 2 × slots on **2.40** centres (measured: 1.05 from each end of the seat), 0.35 above the jaw bottom; Ø9/32 through, ±1/8 horizontal, **±0.04 vertical** so the machined ledge sets the height and the saddle just lands on the casting |
-| Washer pocket | Ø1.06 for a 1 in fender washer with a 45° teardrop roof (prints on end with no arch), open through the jaw bottom, 0.35 of plastic behind the washer (in compression — thin on purpose so a 3/4 in screw gets thread) |
+| Washer pocket | Ø1.06 for a 1 in fender washer, open through the jaw bottom, **0.475** of plastic behind the washer (in compression; sized so a 3/4 in screw fills the casting's blind hole). 45° roof with a 0.40 in bridged flat, pointed along whichever axis is up for the print orientation (`pocket_roof = "auto"`) — Rev Q pointed it at the vee, which is only up for the upright print, and the on-end pockets drooped |
 | Edges | Lengthwise edges eased: 1/16 chamfers on bed-side edges, 1/16 fillets on top/vee/band edges; slot floor sharp; end edges 1/16 chamfer |
 
 | Keel | Value |
@@ -166,7 +166,7 @@ Working load **200 lbf** at the apex line, taken as a cantilever from the castin
 | Bending in the block at the casting top | ~1,600 psi | 4.5 × 1.19 section, wedge trimmed to 0.35 |
 | Saddle bearing on the casting top | ~450 psi | on the casting's ~1/4 in flat |
 | Screw tension (prying, both screws) | ~250 lbf each | a grade-5 1/4-20 proofs at ~2,700 lbf |
-| Washer bearing on the plastic | ~350 psi | 1 in fender washer on 0.35 of plastic (3/4 in: ~600). With only the small washers the vise ships with it is ~3,000 — use the big ones. |
+| Washer bearing on the plastic | ~350 psi | 1 in fender washer on 0.475 of plastic (3/4 in: ~600). With only the small washers the vise ships with it is ~3,000 — use the big ones. |
 
 Loads at the top of the vee instead of the apex are 1.5× these. Against PETG that's a margin of
 about 15 on the washer bearing with the 1 in washers and only ~2 with small ones — which is why the working load is 200 and not 500, and why the big washers are not optional. CF nylon roughly

@@ -1,4 +1,4 @@
-"""Chamfered deboss of the DCV logo + FUCK YEAH into the Rev O jaw, done with manifold3d
+"""Chamfered deboss of the DCV logo + FUCK YEAH into the Rev R jaw, done with manifold3d
 (OpenSCAD 2021's CGAL chokes on the stepped cutter).  Geometry mirrors doyle_vee_jaw.scad.
 Print orientation is +X up, so the +X wall of every stroke (the cavity ceiling) gets a 45deg chamfer."""
 import re, sys, numpy as np, trimesh
@@ -10,7 +10,7 @@ from manifold3d import Manifold, CrossSection, Mesh
 IN = 25.4
 # ---- jaw params (keep in sync with the .scad) ----
 L = 4.50*IN; SEAT = 0.75*IN; ZA = SEAT + 2.00*IN; VH = 1.00*IN; H = ZA + VH
-TA = 0.60*IN; TE = TA + VH*np.tan(np.radians(15)); FT = 0.40*IN; BT = 0.35*IN
+TA = 0.60*IN; TE = TA + VH*np.tan(np.radians(15)); FT = 0.40*IN; BT = 0.35*IN   # back taper (unchanged in R; wall_under_head is a pocket parameter, not needed here)
 DB = 0.04*IN; STEPS = 4; FLIP = "--flip" in sys.argv; UPRIGHT = "--upright" in sys.argv
 
 def svg_polys(path):
@@ -70,9 +70,11 @@ def save(man, path):
     tm.export(path)
     return trimesh.load(path, process=False)
 
-jaw = load_manifold('jaw_4.5in_Q_plain_UPRIGHT_PRINT.stl')
+REV = 'r'
+# Rev R: the pocket roof follows the print orientation, so the on-end print starts from the roof-along-X solid
+jaw = load_manifold(f'jaw45{REV}_plain.stl' if UPRIGHT else f'jaw45{REV}_plain_roofx.stl')
 PUBLIC = '--public' in sys.argv
-text = None if PUBLIC else svg_polys('art_text.svg'); logo = svg_polys('art_logo_public.svg' if PUBLIC else 'art_logo.svg')
+text = None if PUBLIC else svg_polys('art_text.svg'); logo = svg_polys('art_logo2.svg' if PUBLIC else 'art_logo.svg')
 if FLIP and text is not None:   # fixed jaw: operator stands on its vee side, so the top text is rotated 180deg (never mirrored);
            # the wedge logo faces the back of the vise and stays as-is
     text = affinity.rotate(text, 180, origin=(0, 0))
@@ -87,8 +89,8 @@ logo_cut = (chamfered_cutter(logo, 0, 1) if UPRIGHT else chamfered_cutter(logo, 
 
 out = ((jaw - logo_cut) if text_cut is None else (jaw - text_cut - logo_cut)).simplify(0.001)
 tag = ('DCV_public' if PUBLIC else 'DCV_FY') + ('_fixedjaw' if FLIP else '') + ('_UPRIGHT' if UPRIGHT else '')
-up = save(out, f'jaw_4.5in_Q_{tag}_upright.stl')
-pr = up if UPRIGHT else save(out.rotate([0, -90, 0]), f'jaw_4.5in_Q_{tag}_print_on_end.stl')
+up = save(out, f'jaw45{REV}_{tag}_upright.stl')
+pr = up if UPRIGHT else save(out.rotate([0, -90, 0]), f'jaw45{REV}_{tag}_print_on_end.stl')
 chk = lambda p: trimesh.load(p).is_watertight   # merged, like a slicer
-print(tag, 'watertight', chk(f'jaw_4.5in_Q_{tag}_upright.stl'), (UPRIGHT or chk(f'jaw_4.5in_Q_{tag}_print_on_end.stl')), 'vol in3', round(up.volume/16387.064, 2), 'faces', len(up.faces),
+print(tag, 'watertight', chk(f'jaw45{REV}_{tag}_upright.stl'), (UPRIGHT or chk(f'jaw45{REV}_{tag}_print_on_end.stl')), 'vol in3', round(up.volume/16387.064, 2), 'faces', len(up.faces),
       'print bounds in', (pr.bounds/IN).round(2).tolist())
