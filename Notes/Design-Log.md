@@ -187,4 +187,7 @@ will be much stiffer.
    under the washer pockets in compression, and there was spool to spare). Jaw plate printed
    2026-09-09 on end, clean; the 0.04 in URL deboss with 45° ceilings resolved with no support.
    Insert on its own plate afterwards. Still open: weigh what's left of the spool.
+6. **Keel plate.** `Doyle keel v9 - claude PET-CF17.3mf` built 2026-09-10 straight from the PA612 project
+   file (same process: 5 walls / 40 % 3D honeycomb / 8 mm brim), filament swapped to Polymaker PET-CF17 per
+   their wiki: 270–300 °C, bed 70–80, fan 0, door open. Unprinted.
 6. **Photos** for the README: jaws on the vise with a handguard; keel + insert with a lower.
