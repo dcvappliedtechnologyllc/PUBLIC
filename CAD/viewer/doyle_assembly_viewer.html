@@ -121,27 +121,27 @@ const KT = 2.185*IN, POCKET = 0.15*IN;
 const keelZ = ZA - VH + LIFT, insertZ = keelZ + KT - POCKET;
 
 const PARTS = [
-  {id:'jaw_fixed',  geo:'jaw_plain', name:'Fixed jaw (plain)', rev:'REV R2', color:0x3b3e44, on:true,
+  {id:'jaw_fixed',  geo:'jaw_plain', name:'Fixed jaw (plain)', rev:'REV R2', color:0x3b3e44, on:false,
    dims:[['Length','4.50 in'],['Apex above casting','2.00 in'],['Vee','±1.00 in @ 15°'],['Pockets','1 in fender, 45° shed roof for the on-end print'],['Wall under head','0.475 in (1/4-20 × 3/4)'],['Material','PA612-CF15, on end']]},
-  {id:'jaw_mov',    geo:'jaw_dcv',   name:'Movable jaw (DCV)', rev:'REV R2', color:0x2a2c31, on:true,
+  {id:'jaw_mov',    geo:'jaw_dcv',   name:'Movable jaw (DCV)', rev:'REV R2', color:0x2a2c31, on:false,
    dims:[['Length','4.50 in'],['Wedge art','wordmark + DCV-AT.COM, 0.04 in deboss'],['Band','0.325 in proud, foam slot 0.10 × 0.30'],['Hardware','1/4-20 × 3/4 on 2.40 c-c'],['Material','PA612-CF15, on end']]},
   {id:'keel',       geo:'keel',      name:'Keel dock', rev:'V9', color:0x3e6c9e, on:true,
    dims:[['Length','4.50 in'],['Across apex','2.50 in · 2.97 over flanges'],['Tee flange','0.50 × 0.20 on the jaw tops'],['Lift','apex 0.015 above jaw apex'],['Screws','2 × 1/4-20 × 1-1/4 up from below'],['Material','PET-CF17, on end']]},
   {id:'insert',     geo:'insert',    name:'PMAG insert', rev:'V5', color:0xd07a2a, on:true,
    dims:[['Base','2.64 × 1.34 × 0.40 in'],['Stub','cloned PMAG geometry with its sloped magwell seat'],['Height','3.43 in (v4 was 1/2 in short — catch never engaged)'],['Nuts','2 × 7/16 AF pockets, from the top'],['Material','PET-CF17']]},
-  {id:'wheel',      geo:'wheel',     name:'Handwheel', rev:'REV E', color:0x1e1f22, on:false,
+  {id:'wheel',      geo:'wheel',     name:'Handwheel', rev:'REV E', color:0x1e1f22, on:true,
    dims:[['Diameter','6.50 in, 0.47 thick'],['Bore','over the Ø1.50 hub, six crush ribs'],['Retention','two 3/16 in cable ties on the T-bar'],['Face','full DCV logo, LEFTY LOOSE · RIGHTY TIGHT'],['Rev F','pending measurements: bore tighter, rim out to the washers']]},
   {id:'clam',       geo:'clam',      name:'Reaction-rod clamshell', rev:'REV A · DRAFT', color:0x6a8f4e, on:false,
    dims:[['Length','3.50 in, at the front of the jaws'],['Channel','Ø0.995 / 0.745 flats facing the jaws'],['Parting gap','0.030 in with the rod seated'],['Preload','#64 bands in 45° grooves at ±1.40'],['Rev B','rod-behind-receiver measurement, tongue-and-groove key']]},
   {id:'rod',        geo:'rod',       name:'Geissele Reaction Rod', rev:'CONTEXT', color:0x8a8f96, on:false,
    dims:[['OD','0.995 in'],['Flats','0.745 in'],['Length','11.25 in'],['Note','flats shown over the first 4.5 in — unmeasured']]},
-  {id:'sPlastic',   geo:'sPlastic',  name:'Rev S · printed segments', rev:'CONCEPT', color:0x3b3e44, on:false, both:true,
+  {id:'sPlastic',   geo:'sPlastic',  name:'Rev S · printed segments', rev:'CONCEPT', color:0x3b3e44, on:true, both:true,
    dims:[['Segments','3 × 1.167 in, same profile, on end'],['Tab','full section, 0.99 in to the pad'],['Holes','3 × 3/8 for the through-bolts, 9/32 for the mounting screws'],['Infill','30 % is fine — the plates carry it'],['Both jaws','shown on fixed and movable']]},
-  {id:'sPlates',    geo:'sPlates',   name:'Rev S · steel plates', rev:'CONCEPT', color:0x7a8aa0, on:false, both:true,
+  {id:'sPlates',    geo:'sPlates',   name:'Rev S · steel plates', rev:'CONCEPT', color:0x7a8aa0, on:true, both:true,
    dims:[['Count','4 per jaw, 1/4 in mild steel, laser cut'],['Edges','flush on the casting/pad side, 0.06 under the work faces'],['Holes','3 × 11/32 on one column at Y 0.33'],['FE','11.5 → 1.2 mil at 1000 lbf'],['Weight','0.26 lb each']]},
-  {id:'sPad',       geo:'sPad',      name:'Rev S · OEM pad (outboard)', rev:'CONCEPT', color:0xb0b8c0, on:false, both:true,
+  {id:'sPad',       geo:'sPad',      name:'Rev S · OEM pad (outboard)', rev:'CONCEPT', color:0xb0b8c0, on:true, both:true,
    dims:[['Pad','4.47 × 0.75 × 0.30 in ASSUMED'],['Proud of band','0.10 in'],['Clamps','plates steel-on-steel to the casting'],['Screws','1/4-20 × 1-3/4 Torx Plus button (hole depth pending)']]},
-  {id:'sBolts',     geo:'sBolts',    name:'Rev S · hardware', rev:'CONCEPT', color:0x2b2e33, on:false, both:true,
+  {id:'sBolts',     geo:'sBolts',    name:'Rev S · hardware', rev:'CONCEPT', color:0x2b2e33, on:true, both:true,
    dims:[['Through-bolts','3 × 5/16-18 × 5 in SHCS, Grade 8 nuts, SAE washers'],['Column','Y 0.33, Z 0.80 / 2.10 / 3.35'],['Mounting','2 × 1/4-20 through the pad and segments'],['McMaster','91251A099 · 94895A030 · 90126A224']]},
 ];
 
@@ -219,7 +219,7 @@ for (const p of PARTS){
 }
 // ---- hover plate
 const hName = document.getElementById('h-name'), hRev = document.getElementById('h-rev'), hDims = document.getElementById('h-dims');
-const ASSEMBLY = {name:'Assembly', rev:'R2 · V9 · V5', dims:[['Apex to apex','2.50 in (keel seated)'],['Jaw tops','3.00 in above the casting'],['Stack','casting → jaw saddle → tee flange → keel → insert'],['Rev S','toggle the four Rev S rows and turn the R2 jaws off to see the plate stack'],['Clamshell','turn the keel + insert off, clamshell + rod on']]};
+const ASSEMBLY = {name:'Assembly', rev:'R2 · V9 · V5', dims:[['Apex to apex','2.50 in (keel seated)'],['Jaw tops','3.00 in above the casting'],['Stack','casting → jaw saddle → tee flange → keel → insert'],['Rev S','shown by default; turn the four Rev S rows off and the R2 jaws on for the printed-only jaw'],['Clamshell','turn the keel + insert off, clamshell + rod on']]};
 function showInfo(p){
   const d = p || ASSEMBLY;
   hName.textContent = d.name; hRev.textContent = d.rev;
