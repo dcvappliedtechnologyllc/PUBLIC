@@ -1,0 +1,278 @@
+<title>Doyle Vee Jaws Assembly</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#E7E9E4; --panel:#F5F6F2; --panel-2:#ECEEE8; --ink:#17191B; --muted:#5E655F; --line:#CBD0C8;
+  --accent:#B8322B; --accent-ink:#8F231E; --keel:#3E6C9E; --focus:#2B5F9E;
+  --canvas-bg:#DCDFD8;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#141618; --panel:#1C1F22; --panel-2:#23272B; --ink:#E8E6DF; --muted:#9AA198; --line:#30353A;
+    --accent:#D9483F; --accent-ink:#F0857D; --keel:#6E9BD0; --focus:#7FB0EA; --canvas-bg:#1A1D20;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#141618; --panel:#1C1F22; --panel-2:#23272B; --ink:#E8E6DF; --muted:#9AA198; --line:#30353A;
+  --accent:#D9483F; --accent-ink:#F0857D; --keel:#6E9BD0; --focus:#7FB0EA; --canvas-bg:#1A1D20;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:14px/1.45 "IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;overflow:hidden}
+.app{display:grid;grid-template-columns:1fr 316px;height:100vh;min-height:560px}
+.stage{position:relative;background:var(--canvas-bg);overflow:hidden}
+.stage canvas{display:block;width:100%;height:100%}
+.plate{position:absolute;left:16px;top:14px;pointer-events:none}
+.plate h1{margin:0;font:700 30px/1 "Barlow Condensed","Arial Narrow",sans-serif;letter-spacing:.01em;text-transform:uppercase}
+.plate .sub{margin-top:4px;font:500 13px/1.3 "IBM Plex Mono",ui-monospace,monospace;color:var(--muted);letter-spacing:.02em}
+.hover{position:absolute;left:16px;bottom:14px;max-width:440px;background:color-mix(in srgb,var(--panel) 92%,transparent);border:1px solid var(--line);padding:12px 14px 12px;pointer-events:none;
+  font-variant-numeric:tabular-nums}
+.hover .name{font:600 20px/1 "Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.02em}
+.hover .rev{display:inline-block;margin-left:8px;padding:2px 6px;font:500 11px/1 "IBM Plex Mono",monospace;background:var(--accent);color:#fff;vertical-align:2px;letter-spacing:.04em}
+.hover .dims{margin:8px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:auto 1fr;column-gap:14px;row-gap:3px;font-size:13px}
+.hover .dims dt{color:var(--muted);white-space:nowrap}
+.hover .dims dd{margin:0;font-family:"IBM Plex Mono",ui-monospace,monospace}
+.rail{background:var(--panel);border-left:1px solid var(--line);padding:16px 18px 18px;overflow-y:auto;display:flex;flex-direction:column;gap:20px}
+.rail h2{margin:0 0 8px;font:600 12px/1 "IBM Plex Sans",sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.parts{display:flex;flex-direction:column;gap:2px}
+.part{display:grid;grid-template-columns:18px 14px 1fr auto;align-items:center;gap:10px;padding:7px 8px;border-radius:3px;cursor:pointer;user-select:none}
+.part:hover{background:var(--panel-2)}
+.part input{margin:0;width:16px;height:16px;accent-color:var(--accent)}
+.part .sw{width:14px;height:14px;border:1px solid rgba(0,0,0,.25)}
+.part .nm{font-weight:500}
+.part .rv{font:500 11px/1 "IBM Plex Mono",monospace;color:var(--muted);letter-spacing:.03em}
+.ctl{display:flex;flex-direction:column;gap:12px}
+.slider{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:baseline}
+.slider label{font-weight:500}
+.slider output{font:500 13px/1 "IBM Plex Mono",monospace;color:var(--accent-ink);font-variant-numeric:tabular-nums}
+.slider input{grid-column:1/-1;width:100%;accent-color:var(--accent);margin:2px 0 0}
+.slider .note{grid-column:1/-1;font-size:12px;color:var(--muted)}
+.btns{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
+button{font:500 13px/1 "IBM Plex Sans",sans-serif;color:var(--ink);background:var(--panel-2);border:1px solid var(--line);padding:9px 8px;border-radius:3px;cursor:pointer}
+button:hover{border-color:var(--muted)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+button.on{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+.toggles{display:flex;flex-direction:column;gap:8px}
+.toggles label{display:flex;gap:10px;align-items:center;cursor:pointer}
+.toggles input{accent-color:var(--accent);width:16px;height:16px;margin:0}
+.foot{margin-top:auto;font-size:12px;color:var(--muted);line-height:1.5}
+.foot a{color:var(--accent-ink)}
+@media (max-width:820px){
+  .app{grid-template-columns:1fr;grid-template-rows:56vh 1fr;height:100vh}
+  .rail{border-left:0;border-top:1px solid var(--line)}
+  .hover{max-width:70%}
+}
+</style>
+
+<div class="app">
+  <div class="stage" id="stage">
+    <div class="plate">
+      <h1>Doyle Vee Jaws</h1>
+      <div class="sub">HF 57737 · 4-1/2 in vise · jaws Rev R2 · keel v9 · insert v5 · wheel Rev E · clamshell A · Rev S concept</div>
+    </div>
+    <div class="hover" id="hover">
+      <span class="name" id="h-name">Assembly</span><span class="rev" id="h-rev">CLAMPED</span>
+      <dl class="dims" id="h-dims"></dl>
+    </div>
+  </div>
+  <aside class="rail">
+    <section>
+      <h2>Parts</h2>
+      <div class="parts" id="parts"></div>
+    </section>
+    <section class="ctl">
+      <h2>Motion</h2>
+      <div class="slider">
+        <label for="open">Vise opening</label><output id="open-out">2.50 in at apex</output>
+        <input type="range" id="open" min="0" max="38.1" step="0.1" value="0">
+        <span class="note">Movable jaw, casting and screw travel; the keel stays hung on the fixed jaw.</span>
+      </div>
+      <div class="slider">
+        <label for="explode">Explode</label><output id="explode-out">0</output>
+        <input type="range" id="explode" min="0" max="1" step="0.01" value="0">
+      </div>
+    </section>
+    <section>
+      <h2>View</h2>
+      <div class="btns">
+        <button data-view="iso" class="on">Isometric</button>
+        <button data-view="front">Operator</button>
+        <button data-view="top">Top</button>
+        <button data-view="side">Side</button>
+      </div>
+    </section>
+    <section class="toggles">
+      <h2>Display</h2>
+      <label><input type="checkbox" id="section"> Section at mid-length</label>
+      <label><input type="checkbox" id="wire"> Wireframe</label>
+      <label><input type="checkbox" id="context" checked> Vise castings and screw (context only)</label>
+    </section>
+    <div class="foot">Drag to orbit, scroll to zoom, right-drag to pan. Geometry is the actual print STLs (insert and wheel lightly decimated); Rev S and the clamshell are concept solids. Castings are placeholders, not the real vise.</div>
+  </aside>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+const GEO = /*GEO*/;
+const IN = 25.4;
+const L = 4.50*IN, TA = 0.60*IN, W = 2.50*IN, C = 2*TA + W, ZA = 2.75*IN, VH = 1.00*IN, LIFT = 0.015*IN, SEAT = 0.75*IN;
+const KT = 2.185*IN, POCKET = 0.15*IN;
+const keelZ = ZA - VH + LIFT, insertZ = keelZ + KT - POCKET;
+
+const PARTS = [
+  {id:'jaw_fixed',  geo:'jaw_plain', name:'Fixed jaw (plain)', rev:'REV R2', color:0x3b3e44, on:true,
+   dims:[['Length','4.50 in'],['Apex above casting','2.00 in'],['Vee','±1.00 in @ 15°'],['Pockets','1 in fender, 45° shed roof for the on-end print'],['Wall under head','0.475 in (1/4-20 × 3/4)'],['Material','PA612-CF15, on end']]},
+  {id:'jaw_mov',    geo:'jaw_dcv',   name:'Movable jaw (DCV)', rev:'REV R2', color:0x2a2c31, on:true,
+   dims:[['Length','4.50 in'],['Wedge art','wordmark + DCV-AT.COM, 0.04 in deboss'],['Band','0.325 in proud, foam slot 0.10 × 0.30'],['Hardware','1/4-20 × 3/4 on 2.40 c-c'],['Material','PA612-CF15, on end']]},
+  {id:'keel',       geo:'keel',      name:'Keel dock', rev:'V9', color:0x3e6c9e, on:true,
+   dims:[['Length','4.50 in'],['Across apex','2.50 in · 2.97 over flanges'],['Tee flange','0.50 × 0.20 on the jaw tops'],['Lift','apex 0.015 above jaw apex'],['Screws','2 × 1/4-20 × 1-1/4 up from below'],['Material','PET-CF17, on end']]},
+  {id:'insert',     geo:'insert',    name:'PMAG insert', rev:'V5', color:0xd07a2a, on:true,
+   dims:[['Base','2.64 × 1.34 × 0.40 in'],['Stub','cloned PMAG geometry with its sloped magwell seat'],['Height','3.43 in (v4 was 1/2 in short — catch never engaged)'],['Nuts','2 × 7/16 AF pockets, from the top'],['Material','PET-CF17']]},
+  {id:'wheel',      geo:'wheel',     name:'Handwheel', rev:'REV E', color:0x1e1f22, on:false,
+   dims:[['Diameter','6.50 in, 0.47 thick'],['Bore','over the Ø1.50 hub, six crush ribs'],['Retention','two 3/16 in cable ties on the T-bar'],['Face','full DCV logo, LEFTY LOOSE · RIGHTY TIGHT'],['Rev F','pending measurements: bore tighter, rim out to the washers']]},
+  {id:'clam',       geo:'clam',      name:'Reaction-rod clamshell', rev:'REV A · DRAFT', color:0x6a8f4e, on:false,
+   dims:[['Length','3.50 in, at the front of the jaws'],['Channel','Ø0.995 / 0.745 flats facing the jaws'],['Parting gap','0.030 in with the rod seated'],['Preload','#64 bands in 45° grooves at ±1.40'],['Rev B','rod-behind-receiver measurement, tongue-and-groove key']]},
+  {id:'rod',        geo:'rod',       name:'Geissele Reaction Rod', rev:'CONTEXT', color:0x8a8f96, on:false,
+   dims:[['OD','0.995 in'],['Flats','0.745 in'],['Length','11.25 in'],['Note','flats shown over the first 4.5 in — unmeasured']]},
+  {id:'sPlastic',   geo:'sPlastic',  name:'Rev S · printed segments', rev:'CONCEPT', color:0x3b3e44, on:false, both:true,
+   dims:[['Segments','3 × 1.167 in, same profile, on end'],['Tab','full section, 0.99 in to the pad'],['Holes','3 × 3/8 for the through-bolts, 9/32 for the mounting screws'],['Infill','30 % is fine — the plates carry it'],['Both jaws','shown on fixed and movable']]},
+  {id:'sPlates',    geo:'sPlates',   name:'Rev S · steel plates', rev:'CONCEPT', color:0x7a8aa0, on:false, both:true,
+   dims:[['Count','4 per jaw, 1/4 in mild steel, laser cut'],['Edges','flush on the casting/pad side, 0.06 under the work faces'],['Holes','3 × 11/32 on one column at Y 0.33'],['FE','11.5 → 1.2 mil at 1000 lbf'],['Weight','0.26 lb each']]},
+  {id:'sPad',       geo:'sPad',      name:'Rev S · OEM pad (outboard)', rev:'CONCEPT', color:0xb0b8c0, on:false, both:true,
+   dims:[['Pad','4.47 × 0.75 × 0.30 in ASSUMED'],['Proud of band','0.10 in'],['Clamps','plates steel-on-steel to the casting'],['Screws','1/4-20 × 1-3/4 Torx Plus button (hole depth pending)']]},
+  {id:'sBolts',     geo:'sBolts',    name:'Rev S · hardware', rev:'CONCEPT', color:0x2b2e33, on:false, both:true,
+   dims:[['Through-bolts','3 × 5/16-18 × 5 in SHCS, Grade 8 nuts, SAE washers'],['Column','Y 0.33, Z 0.80 / 2.10 / 3.35'],['Mounting','2 × 1/4-20 through the pad and segments'],['McMaster','91251A099 · 94895A030 · 90126A224']]},
+];
+
+const stage = document.getElementById('stage');
+const renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.localClippingEnabled = true;
+stage.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(32, 1, 5, 4000);
+camera.up.set(0,0,1);
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.target.set(L/2, C/2, 70); controls.enableDamping = true; controls.dampingFactor = 0.08;
+
+scene.add(new THREE.HemisphereLight(0xffffff, 0x556070, 0.85));
+const key = new THREE.DirectionalLight(0xffffff, 0.9); key.position.set(-120, -260, 320); scene.add(key);
+const fill = new THREE.DirectionalLight(0xffffff, 0.35); fill.position.set(260, 180, 120); scene.add(fill);
+
+const clipPlane = new THREE.Plane(new THREE.Vector3(-1,0,0), L/2);
+const meshes = {}, mats = [];
+function decode(p){
+  const vb = Uint8Array.from(atob(p.v), c=>c.charCodeAt(0)).buffer;
+  const ib = Uint8Array.from(atob(p.i), c=>c.charCodeAt(0)).buffer;
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(vb), 3));
+  g.setIndex(new THREE.BufferAttribute(p.i32 ? new Uint32Array(ib) : new Uint16Array(ib), 1));
+  g.computeVertexNormals();
+  return g;
+}
+function mat(color, opts={}){
+  const m = new THREE.MeshStandardMaterial(Object.assign({color, roughness:0.62, metalness:0.05, flatShading:true, side:THREE.DoubleSide}, opts));
+  mats.push(m); return m;
+}
+const movable = new THREE.Group(); scene.add(movable);          // everything that travels with the movable jaw
+const fixed = new THREE.Group(); scene.add(fixed);
+
+const CLAM_X = 1.75*IN;                                              // shell 3.50 long at the front end of the jaws
+function place(m, p, group){
+  if (p.id === 'jaw_fixed') fixed.add(m);
+  if (p.id === 'jaw_mov'){ m.position.set(L, C, 0); m.rotation.z = Math.PI; movable.add(m); }
+  if (p.id === 'keel'){ m.position.set(L/2, C/2, keelZ); fixed.add(m); }
+  if (p.id === 'insert'){ m.position.set(L/2, C/2, insertZ); fixed.add(m); }
+  if (p.id === 'clam'){ m.position.set(CLAM_X, C/2, keelZ); fixed.add(m); }
+  if (p.id === 'rod'){ m.position.set(0, C/2, keelZ + VH); fixed.add(m); }
+  if (p.id === 'wheel'){ m.rotation.x = Math.PI/2; m.position.set(L/2, C + 150, -38); movable.add(m); }
+  if (p.both){ if (group === 'fixed') fixed.add(m); else { m.position.set(L, C, 0); m.rotation.z = Math.PI; movable.add(m); } }
+}
+const twins = {};
+for (const p of PARTS){
+  const g = decode(GEO[p.geo]);
+  const m = new THREE.Mesh(g, mat(p.color)); m.userData = p; meshes[p.id] = m; m.visible = p.on;
+  place(m, p, 'fixed');
+  if (p.both){ const m2 = new THREE.Mesh(g, m.material); m2.userData = p; m2.visible = p.on; place(m2, p, 'movable'); twins[p.id] = m2; }
+}
+// context: castings + screw (placeholders)
+const ctx = [];
+const castMat = mat(0xb8322b, {transparent:true, opacity:0.28, flatShading:false, depthWrite:false});
+const steelMat = mat(0x9aa0a6, {transparent:true, opacity:0.45, flatShading:false, metalness:0.4, roughness:0.35, depthWrite:false});
+function box(w,d,h,x,y,z,m,parent){ const b=new THREE.Mesh(new THREE.BoxGeometry(w,d,h), m); b.position.set(x,y,z); parent.add(b); ctx.push(b); return b; }
+box(L, 40, 60+SEAT, L/2, -20, (SEAT-60)/2, castMat, fixed);
+box(L, 40, 60+SEAT, L/2, C+20, (SEAT-60)/2, castMat, movable);
+const screw = new THREE.Mesh(new THREE.CylinderGeometry(9,9,150,32), steelMat); screw.position.set(L/2, C+40+75, -38); movable.add(screw); ctx.push(screw);
+const bar = new THREE.Mesh(new THREE.CylinderGeometry(7.5,7.5,200,24), steelMat); bar.rotation.z = Math.PI/2; bar.position.set(L/2, C+150-16, -38);   // in the wheel's channel: bar axis 16 mm behind the front face (plate 12 - seat 4 + 8) movable.add(bar); ctx.push(bar);
+const grid = new THREE.GridHelper(600, 24, 0x888888, 0x888888); grid.rotation.x = Math.PI/2; grid.position.set(L/2, C/2, -60.5);
+grid.material.transparent = true; grid.material.opacity = 0.18; scene.add(grid);
+
+// ---- rail: part list
+const partsEl = document.getElementById('parts');
+for (const p of PARTS){
+  const row = document.createElement('label'); row.className = 'part'; row.dataset.id = p.id;
+  row.innerHTML = `<input type="checkbox" ${p.on?'checked':''}><span class="sw" style="background:#${p.color.toString(16).padStart(6,'0')}"></span><span class="nm">${p.name}</span><span class="rv">${p.rev}</span>`;
+  row.querySelector('input').addEventListener('change', e => { meshes[p.id].visible = e.target.checked; if (twins[p.id]) twins[p.id].visible = e.target.checked; });
+  row.addEventListener('mouseenter', () => showInfo(p)); row.addEventListener('mouseleave', () => showInfo(null));
+  partsEl.appendChild(row);
+}
+// ---- hover plate
+const hName = document.getElementById('h-name'), hRev = document.getElementById('h-rev'), hDims = document.getElementById('h-dims');
+const ASSEMBLY = {name:'Assembly', rev:'R2 · V9 · V5', dims:[['Apex to apex','2.50 in (keel seated)'],['Jaw tops','3.00 in above the casting'],['Stack','casting → jaw saddle → tee flange → keel → insert'],['Rev S','toggle the four Rev S rows and turn the R2 jaws off to see the plate stack'],['Clamshell','turn the keel + insert off, clamshell + rod on']]};
+function showInfo(p){
+  const d = p || ASSEMBLY;
+  hName.textContent = d.name; hRev.textContent = d.rev;
+  hDims.innerHTML = d.dims.map(([k,v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('');
+}
+showInfo(null);
+let hot = null;
+const ray = new THREE.Raycaster(), ptr = new THREE.Vector2();
+renderer.domElement.addEventListener('pointermove', e => {
+  const r = renderer.domElement.getBoundingClientRect();
+  ptr.set(((e.clientX - r.left)/r.width)*2 - 1, -((e.clientY - r.top)/r.height)*2 + 1);
+  ray.setFromCamera(ptr, camera);
+  const hits = ray.intersectObjects([...Object.values(meshes), ...Object.values(twins)].filter(m => m.visible));
+  const h = hits.length ? hits[0].object : null;
+  if (h !== hot){ if (hot) hot.material.emissive.setHex(0); hot = h; if (hot) hot.material.emissive.setHex(0x3a2a10); showInfo(hot ? hot.userData : null); }
+});
+
+// ---- motion
+const openIn = document.getElementById('open'), openOut = document.getElementById('open-out');
+const explIn = document.getElementById('explode'), explOut = document.getElementById('explode-out');
+function update(){
+  const o = +openIn.value, e = +explIn.value;
+  movable.position.y = o;
+  openOut.textContent = `${(2.50 + o/IN).toFixed(2)} in at apex`;
+  explOut.textContent = e.toFixed(2);
+  meshes.keel.position.z = keelZ + e*22;
+  meshes.insert.position.z = insertZ + e*70;
+  meshes.clam.position.z = keelZ + e*22; meshes.rod.position.z = keelZ + VH + e*22;
+  meshes.sPad.position.y = e*18; twins.sPad.position.y = C - e*18; meshes.sBolts.position.x = e*25; twins.sBolts.position.x = L - e*25;
+  meshes.wheel.position.y = C + 150 + e*60; bar.position.y = C + 150 - 16 + e*60;
+}
+openIn.addEventListener('input', update); explIn.addEventListener('input', update); update();
+
+// ---- views
+const VIEWS = {
+  iso:  [L/2 + 330, C/2 - 430, 270],
+  front:[L/2, C/2 + 560, 110],
+  top:  [L/2, C/2 + 0.01, 560],
+  side: [L/2 + 560, C/2, 90],
+};
+document.querySelectorAll('[data-view]').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('[data-view]').forEach(x => x.classList.remove('on')); b.classList.add('on');
+  const [x,y,z] = VIEWS[b.dataset.view]; camera.position.set(x,y,z); controls.target.set(L/2, C/2, 70); controls.update();
+}));
+camera.position.set(...VIEWS.iso);
+
+// ---- display toggles
+document.getElementById('section').addEventListener('change', e => { mats.forEach(m => { m.clippingPlanes = e.target.checked ? [clipPlane] : []; m.needsUpdate = true; }); });
+document.getElementById('wire').addEventListener('change', e => { Object.values(meshes).forEach(m => m.material.wireframe = e.target.checked); });
+document.getElementById('context').addEventListener('change', e => { ctx.forEach(m => m.visible = e.target.checked); });
+
+function resize(){ const w = stage.clientWidth, h = stage.clientHeight; renderer.setSize(w, h, false); camera.aspect = w/h; camera.updateProjectionMatrix(); }
+addEventListener('resize', resize); resize();
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches; if (reduce) controls.enableDamping = false;
+(function loop(){ controls.update(); renderer.render(scene, camera); requestAnimationFrame(loop); })();
+</script>

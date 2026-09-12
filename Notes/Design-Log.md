@@ -165,6 +165,40 @@ will be much stiffer.
 
 ---
 
+## Rev S — steel in the jaw (concept, 2026-09-11/12)
+
+David, looking at the R2 jaws on the vise: the flex is at the screws — "I want to be able to tighten until my nose
+bleeds." First idea: keep the OEM steel jaw pad and use it as a giant washer over a printed tab, pad outboard, screws
+through pad → tab → casting. A 2D plane-strain FE of the section (`CAD/jaw_fea.py`: Q4 raster mesh, compression-only
+contact on the casting face / ledge / casting top, screw preload + stiffness, PA612-CF15 as 5 solid walls + 40 % core,
+1000 lbf clamp per jaw) settled the arguments:
+
+* The clamp load pushes the jaw **into** the casting; the joint never opens and screw tension *falls* under load.
+  Preload is not a stiffness lever, it is a take-up-the-slop lever. The 1/4-20 mounting screws are not in the clamp
+  load path; they matter only for pull-away loads and for holding position.
+* A thin tab (0.475) is soft not because the tab hinges but because the band overhangs a thin pad with nothing under
+  it (David's red line). Stiffness bottoms out once the pad front reaches the band face: 15.2 → 11.4 mil at 1000 lbf.
+* Vertical "compression" bolts through the jaw: prestress does nothing for stiffness; as steel ties they buy 5–10 %.
+* Ribs of flat bar in the section plane: 2× 1/2" bar → 7 mil; 2× L-rib from 1" bar → 4.6; 4× L → 3.3.
+* **Full-profile laser-cut 1/4" plates: 4 per jaw → 1.2 mil (10× the plain jaw).** Infill stops mattering (1.19 vs
+  1.22 at 100 %). Below ~2 mil the vise's own slide and screw are the spring, so four plates is where to stop.
+
+Rev S as spec'd: jaw = plate · segment · plate · segment · plate · segment · plate, three 1.167" printed segments
+(same profile, on end, 30 % is fine) and four plates, 4.500" total; the two end plates take the through-bolt heads and
+nuts so nothing bears on plastic. Plate outline = R2 profile, flush on every casting-facing edge (back face, ledge,
+saddle underside, tab front, band underside on the pad top), 0.06 under the work faces, 0.04 under the logo face, riser
+and top. Three 11/32 holes on one column at Y 0.33, Z 0.80 / 2.10 / 3.35 (David: "the holes are illogically placed" —
+they were, and a carriage head would have overhung the plate; now 5/16 SHCS on one line, the lowest one held above
+the mounting-screw path at Z 0.21–0.49). Pad outboard, proud of the band 0.10, clamping the plate edges steel-on-steel.
+Tab depth = band + 0.10 − pad thickness: **pad thickness not yet measured → DXF is a DRAFT.**
+
+Hardware (McMaster, for two jaws): 5/16-18 × 5" alloy SHCS 91251A099 (×6), Grade 8 hex nut 94895A030, SAE Grade 8
+washer 90126A224; mounting screws 1/4-20 Torx Plus button 90910A494 (1-3/4) / 90910A533 (1-1/2), length pending the
+blind-hole depth. No nylocks (David's standing preference — plain Grade 8 nuts on a preloaded joint). Plates:
+SendCutSend, mild steel 0.250", deburred, ×8.
+
+---
+
 ## Open items — close before publication
 
 1. **Fit on the vise.** Rev J PETG+ and Rev Q PA612-CF both fitted and clamped; 2.40 centres confirmed,
@@ -198,4 +232,7 @@ will be much stiffer.
    face (shell length ≤ that − 0.25), where the flats start and how long they are, lug length. Then
    `rod_flat_len_in`, `flat_from_end_in`, `shell_length_in` in `rod_clamshell.scad`. Also check a #64 band
    (doubled) actually pulls the halves shut over the 0.030 gap.
-8. **Photos** for the README: jaws on the vise with a handguard; keel + insert with a lower.
+8. **Rev S.** Measure the OEM pad (L × H × T, hole style, screw length) and the casting's blind-hole depth; set
+   `PAD_T` in `CAD/jaw_plate.py`, regenerate the DXF, order 8 plates; cut the segment STL (R2 profile, full tab, three
+   3/8 holes, 9/32 mounting holes in the outer segments only) and the Orca plate.
+9. **Photos** for the README: jaws on the vise with a handguard; keel + insert with a lower.

@@ -48,6 +48,7 @@ pin_x_in          = 1.50;    // +/- from centre
 pin_z_in          = 1.74;    // between the bore top (1.50) and the flange underside (1.985)
 
 print_on_end = false;
+viewer_assembled = false;
 $fn = 96;
 
 L = shell_length_in * in; W = keel_apex_width_in * in; VH = vee_half_height_in * in; KH = 2 * VH;
@@ -112,5 +113,5 @@ module pins() {   // two loose pins, lying flat beside the halves
     for (i = [0, 1]) translate([-L/2 + 5 + i * 10, 0, PD/2]) rotate([0, 0, 0]) rotate([-90, 0, 0]) translate([0, 0, -PL/2]) cylinder(d = PD, h = PL, $fn = 32);
 }
 
-if (print_on_end) { translate([0, 0, L/2]) rotate([0, -90, 0]) both(); if (print_pins) translate([-W - 2 * FR - 15, 0, 0]) pins(); }
+if (viewer_assembled) { half(1); half(-1); } else if (print_on_end) { translate([0, 0, L/2]) rotate([0, -90, 0]) both(); if (print_pins) translate([-W - 2 * FR - 15, 0, 0]) pins(); }
 else both();

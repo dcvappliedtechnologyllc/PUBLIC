@@ -13,6 +13,9 @@ Printed light-vee soft jaws + keel dock for the Harbor Freight Doyle 4-1/2 in sw
   carries a swappable insert. Current **v9**. v1–v8 hung on a set-tab in the foam slot and clamped cocked (see Design Log); the tab is retired, not to be reinstated.
 - **PMAG insert** — magwell stub with its sloped seat on a nut-trap base for the keel pocket. **v5** (v4 cut the seat off
   and the mag catch never engaged; the slant in the source block is the seat, not a tang).
+- **Rev S (next jaw, concept)** — three printed segments + four laser-cut 1/4 in steel plates on three 5/16 through-bolts,
+  OEM pad outboard clamping the plate edges. FE in `CAD/jaw_fea.py` (2D plane strain): 11.5 → 1.2 mil at 1000 lbf.
+  `CAD/jaw_plate.py` → `jaw_plate_S_DRAFT.dxf` — DRAFT until the pad thickness is measured. Plain Grade 8 nuts, no nylocks.
 - **Reaction-rod clamshell** — keel-profile halves with a D-channel for a Geissele Reaction Rod (0.995/0.745),
   band grooves, loose pins, 3.50 in at the front of the jaws. **Rev A, draft, unprinted** — `rod_clamshell.scad`.
   Rev B needs the rod-behind-receiver measurement before anything else changes.
