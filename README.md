@@ -266,6 +266,13 @@ behind the receiver once the lugs are in the barrel extension. Measure that befo
 
 ---
 
+## Designing your own fixture
+
+`Notes/Fixture-Handoff.md` is the one-page version: the vee, the keel section numbers, the pocket and bolt
+interface, and the print rules. Start there if you want something that docks in these jaws.
+
+---
+
 ## Regenerating
 
 ```
