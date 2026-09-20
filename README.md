@@ -268,7 +268,9 @@ behind the receiver once the lugs are in the barrel extension. Measure that befo
 
 ## Designing your own fixture
 
-`Notes/Fixture-Handoff.md` is the one-page version: the vee, the keel section numbers, the pocket and bolt
+`Notes/Jaw-Mechanics-Handoff.md` explains how the jaw carries load — the cantilever off the 0.75 in face, why the
+screws are not the spring, the stiffness ladder from the FE study, and what a vise built for tall soft jaws would do
+differently. `Notes/Fixture-Handoff.md` is the one-page version: the vee, the keel section numbers, the pocket and bolt
 interface, and the print rules. Start there if you want something that docks in these jaws.
 
 ---
